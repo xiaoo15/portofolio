@@ -1,0 +1,27 @@
+:root {
+    --primary: darkblue;
+    --bg: #1111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #111111;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    padding: 1.4rem 7%;
+    background-color: #111111;
+    border: #ffff solid 1px;
+    
+}
