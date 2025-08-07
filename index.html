@@ -603,70 +603,79 @@
         </div>
       </div>
     </div>
-    <script>
-      // Manual Rating Script (No Database)
-      const stars = document.querySelectorAll(".star-rating");
 
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          const value = star.getAttribute("data-rating");
-
-          stars.forEach((s) => {
-            if (parseInt(s.getAttribute("data-rating")) <= parseInt(value)) {
-              s.classList.remove("text-slate-500");
-              s.classList.add("text-yellow-400");
-            } else {
-              s.classList.remove("text-yellow-400");
-              s.classList.add("text-slate-500");
-            }
-          });
-        });
-      });
-      // Typed.js initialization
-      new Typed("#typed-text", {
-        strings: [
-          "I build robust backend systems.",
-          "I design intuitive web interfaces.",
-          "I develop engaging games.",
-        ],
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    // Typed.js initialization
+    new Typed('#typed-text', {
+        strings: ['I build robust backend systems.', 'I design intuitive web interfaces.', 'I develop engaging games.'],
         typeSpeed: 40,
         backSpeed: 20,
         backDelay: 2000,
         loop: true,
-        cursorChar: "|",
-      });
+        cursorChar: '|',
+    });
 
-      // Modal Interaction Script
-      const projectCards = document.querySelectorAll(".project-card");
-      const modals = document.querySelectorAll(".modal-backdrop");
+    // Modal Interaction Script
+    const projectCards = document.querySelectorAll('.project-card');
+    const modals = document.querySelectorAll('.modal-backdrop');
 
-      projectCards.forEach((card) => {
-        card.addEventListener("click", () => {
-          const modalId = card.getAttribute("data-modal-target");
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.add("active");
-          }
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal-target');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+            }
         });
-      });
+    });
 
-      modals.forEach((modal) => {
-        modal.addEventListener("click", (event) => {
-          // Close modal if backdrop is clicked
-          if (event.target === modal) {
-            modal.classList.remove("active");
-          }
+    modals.forEach(modal => {
+        modal.addEventListener('click', (event) => {
+            // Close modal if backdrop is clicked
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
         });
-      });
+    });
 
-      // Close modal with Escape key
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          modals.forEach((modal) => {
-            modal.classList.remove("active");
-          });
+    // Close modal with Escape key
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            modals.forEach(modal => {
+                modal.classList.remove('active');
+            });
         }
-      });
+    });
+
+    // Manual Rating Script (No Database) with Confetti
+    const stars = document.querySelectorAll('.star-rating');
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const value = star.getAttribute('data-rating');
+
+            stars.forEach(s => {
+                if (parseInt(s.getAttribute('data-rating')) <= parseInt(value)) {
+                    s.classList.remove('text-slate-500');
+                    s.classList.add('text-yellow-400');
+                } else {
+                    s.classList.remove('text-yellow-400');
+                    s.classList.add('text-slate-500');
+                }
+            });
+
+            if (value === '5') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    zIndex: 9999, // Biar animasinya di atas konten lain
+                });
+            }
+        });
+    });
+</script>
     </script>
   </body>
 </html>
