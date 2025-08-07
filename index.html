@@ -1,391 +1,672 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Revan - Professional Developer Portfolio. I build modern, responsive, and intuitive web experiences.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Revan - Professional Developer Portfolio. I build modern, responsive, and intuitive web experiences."
+    />
     <title>Revan | Developer Portfolio</title>
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22#58E6D9%22>R.</text></svg>">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22#58E6D9%22>R.</text></svg>"
+    />
 
     <style>
-        /* Define the professional color palette */
-        :root {
-            --bg-color: #0D1117;
-            --text-primary: #C9D1D9;
-            --text-heading: #F0F6FC;
-            --accent-color: #58E6D9;
-            --card-bg: #161B22;
-            --border-color: #30363D;
-        }
+      /* Define the professional color palette */
+      :root {
+        --bg-color: #0d1117;
+        --text-primary: #c9d1d9;
+        --text-heading: #f0f6fc;
+        --accent-color: #58e6d9;
+        --card-bg: #161b22;
+        --border-color: #30363d;
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-        }
-        
-        .font-roboto-mono {
-            font-family: 'Roboto Mono', monospace;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+      }
 
-        /* Project Card */
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-color);
-        }
-        
-        .project-card-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .project-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease-out;
-        }
+      .font-roboto-mono {
+        font-family: "Roboto Mono", monospace;
+      }
 
-        .project-card:hover .project-card-image img {
-            transform: scale(1.05);
-        }
+      /* Project Card */
+      .project-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
 
-        .project-card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+      .project-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--accent-color);
+      }
 
-        /* Modal Styles */
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(13, 17, 23, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 1rem;
-        }
+      .project-card-image {
+        height: 180px;
+        overflow: hidden;
+      }
 
-        .modal-backdrop.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+      .project-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-out;
+      }
 
-        .modal-content {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
+      .project-card:hover .project-card-image img {
+        transform: scale(1.05);
+      }
 
-        .modal-backdrop.active .modal-content {
-            transform: scale(1);
-        }
+      .project-card-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
 
-        .modal-image {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem 0.5rem 0 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+      /* Modal Styles */
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(13, 17, 23, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        padding: 1rem;
+      }
+
+      .modal-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal-content {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 0.5rem;
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        transform: scale(0.95);
+        transition: transform 0.3s ease;
+      }
+
+      .modal-backdrop.active .modal-content {
+        transform: scale(1);
+      }
+
+      .modal-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem 0.5rem 0 0;
+        border-bottom: 1px solid var(--border-color);
+      }
     </style>
-</head>
-<body class="mx-auto max-w-screen-xl px-6 md:px-8 selection:bg-[var(--accent-color)] selection:text-black">
-    
+  </head>
+  <body
+    class="mx-auto max-w-screen-xl px-6 md:px-8 selection:bg-[var(--accent-color)] selection:text-black"
+  >
     <header class="py-8 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold text-[var(--text-heading)]">Revan.</a>
-        <nav class="hidden md:flex items-center space-x-8 text-sm">
-            <a href="#about" class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors">About</a>
-            <a href="#projects" class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors">Projects</a>
-            <a href="#contact" class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors">Contact</a>
-        </nav>
-        <a href="https://drive.google.com/file/d/1ewx1LBHj_GVEeOue5pPKv2H-sKvZ201N/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-           class="font-roboto-mono text-sm border border-[var(--accent-color)] text-[var(--accent-color)] px-4 py-2 rounded hover:bg-[var(--accent-color)] hover:text-black transition-all duration-300">
-            My Resume
-        </a>
+      <a href="#" class="text-2xl font-bold text-[var(--text-heading)]"
+        >Revan.</a
+      >
+      <nav class="hidden md:flex items-center space-x-8 text-sm">
+        <a
+          href="#about"
+          class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors"
+          >About</a
+        >
+        <a
+          href="#projects"
+          class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors"
+          >Projects</a
+        >
+        <a
+          href="#contact"
+          class="text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors"
+          >Contact</a
+        >
+      </nav>
+      <a
+        href="https://drive.google.com/file/d/1ewx1LBHj_GVEeOue5pPKv2H-sKvZ201N/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-roboto-mono text-sm border border-[var(--accent-color)] text-[var(--accent-color)] px-4 py-2 rounded hover:bg-[var(--accent-color)] hover:text-black transition-all duration-300"
+      >
+        My Resume
+      </a>
     </header>
 
     <main>
-        <section id="about" class="min-h-[75vh] flex flex-col justify-center py-20">
-            <div class="max-w-3xl">
-                <p class="font-roboto-mono text-base text-[var(--accent-color)] mb-4">Hi, my name is</p>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-[var(--text-heading)] mb-4">Revan.</h1>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-400 mb-6">
-                    <span id="typed-text"></span>
-                </h2>
-                <p class="text-lg text-[var(--text-primary)] max-w-xl leading-relaxed">
-                    I'm a developer specializing in building exceptional digital experiences. From robust backend systems to engaging game development, I enjoy bringing ideas to life with code.
+      <section
+        id="about"
+        class="min-h-[75vh] flex flex-col justify-center py-20"
+      >
+        <div class="max-w-3xl">
+          <p class="font-roboto-mono text-base text-[var(--accent-color)] mb-4">
+            Hi, my name is
+          </p>
+          <h1
+            class="text-5xl md:text-7xl font-extrabold text-[var(--text-heading)] mb-4"
+          >
+            Revan.
+          </h1>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-slate-400 mb-6">
+            <span id="typed-text"></span>
+          </h2>
+          <p
+            class="text-lg text-[var(--text-primary)] max-w-xl leading-relaxed"
+          >
+            I'm a developer specializing in building exceptional digital
+            experiences. From robust backend systems to engaging game
+            development, I enjoy bringing ideas to life with code.
+          </p>
+          <div class="flex space-x-5 mt-10 text-xl text-slate-400">
+            <a
+              href="https://github.com/xiaoo15"
+              class="hover:text-[var(--accent-color)] transition-colors"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="#"
+              class="hover:text-[var(--accent-color)] transition-colors"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="#"
+              class="hover:text-[var(--accent-color)] transition-colors"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="py-20">
+        <h2
+          class="text-3xl font-bold text-center text-[var(--text-heading)] mb-12"
+        >
+          Technologies & Skills
+        </h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="mb-8">
+            <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">
+              // Backend
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >PHP</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Laravel</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Node.js</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >MySQL</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >REST API</span
+              >
+            </div>
+          </div>
+          <div class="mb-8">
+            <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">
+              // Frontend
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >HTML5 & CSS3</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >JavaScript (ES6+)</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >React</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Tailwind CSS</span
+              >
+            </div>
+          </div>
+          <div>
+            <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">
+              // Game Development & Others
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Roblox (Lua)</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Git & GitHub</span
+              >
+              <span
+                class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm"
+                >Figma</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="py-20">
+        <h2
+          class="text-3xl font-bold text-center text-[var(--text-heading)] mb-16"
+        >
+          Things I've Built
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="project-card" data-modal-target="modal-rapor">
+            <div class="project-card-image">
+              <img
+                src="rapor_online.png"
+                alt="Rapor Online Sekolah Screenshot"
+              />
+            </div>
+            <div class="project-card-content">
+              <div>
+                <p
+                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2"
+                >
+                  Web Application
                 </p>
-                <div class="flex space-x-5 mt-10 text-xl text-slate-400">
-                    <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                </div>
+                <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">
+                  Rapor Online Sekolah
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-primary)] leading-relaxed mb-4"
+                >
+                  Sistem manajemen rapor digital untuk sekolah, memungkinkan
+                  guru menginput nilai dan siswa melihat hasil studi secara
+                  online.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto"
+              >
+                <span>Laravel</span><span>PHP</span><span>MySQL</span
+                ><span>Bootstrap</span>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="skills" class="py-20">
-            <h2 class="text-3xl font-bold text-center text-[var(--text-heading)] mb-12">
-                Technologies & Skills
-            </h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="mb-8">
-                    <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">// Backend</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">PHP</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Laravel</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Node.js</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">MySQL</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">REST API</span>
-                    </div>
-                </div>
-                <div class="mb-8">
-                    <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">// Frontend</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">HTML5 & CSS3</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">JavaScript (ES6+)</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">React</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Tailwind CSS</span>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="font-roboto-mono text-lg text-slate-400 mb-4">// Game Development & Others</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Roblox (Lua)</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Git & GitHub</span>
-                        <span class="bg-[var(--card-bg)] border border-[var(--border-color)] px-4 py-2 rounded-md text-sm">Figma</span>
-                    </div>
-                </div>
+          <div class="project-card" data-modal-target="modal-absensi">
+            <div class="project-card-image">
+              <img
+                src="absensi-ujian.png"
+                alt="Absensi Ujian Digital Screenshot"
+              />
             </div>
-        </section>
-
-        <section id="projects" class="py-20">
-            <h2 class="text-3xl font-bold text-center text-[var(--text-heading)] mb-16">
-                Things I've Built
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="project-card" data-modal-target="modal-rapor">
-                    <div class="project-card-image">
-                        <img src="https://placehold.co/600x400/161B22/C9D1D9?text=Rapor+Online" alt="Rapor Online Sekolah Screenshot">
-                    </div>
-                    <div class="project-card-content">
-                        <div>
-                            <p class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2">Web Application</p>
-                            <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">Rapor Online Sekolah</h3>
-                            <p class="text-sm text-[var(--text-primary)] leading-relaxed mb-4">
-                                Sistem manajemen rapor digital untuk sekolah, memungkinkan guru menginput nilai dan siswa melihat hasil studi secara online.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto">
-                            <span>Laravel</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-modal-target="modal-absensi">
-                    <div class="project-card-image">
-                        <img src="https://placehold.co/600x400/161B22/C9D1D9?text=Absensi+Ujian" alt="Absensi Ujian Digital Screenshot">
-                    </div>
-                    <div class="project-card-content">
-                        <div>
-                            <p class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2">Web Application</p>
-                            <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">Absensi Ujian Digital</h3>
-                            <p class="text-sm text-[var(--text-primary)] leading-relaxed mb-4">
-                                Aplikasi berbasis web untuk merekam dan mengelola kehadiran siswa saat ujian secara efisien dan paperless.
-                            </p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto">
-                            <span>PHP</span><span>MySQL</span><span>JavaScript</span><span>HTML/CSS</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-modal-target="modal-roblox">
-                    <div class="project-card-image">
-                        <img src="https://placehold.co/600x400/161B22/C9D1D9?text=Roblox+City+Game" alt="Roblox Game Screenshot">
-                    </div>
-                    <div class="project-card-content">
-                        <div>
-                            <p class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2">Game Development</p>
-                            <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">"Neo-Sidoarjo" City RP</h3>
-                            <p class="text-sm text-[var(--text-primary)] leading-relaxed mb-4">
-                               Sebuah game Roleplay di platform Roblox dengan tema kota modern. Fokus pada sistem ekonomi, pekerjaan, dan interaksi pemain.
-                            </p>
-                        </div>
-                         <div class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto">
-                            <span>Roblox Studio</span><span>Lua</span><span>Game Design</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="project-card-content">
+              <div>
+                <p
+                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2"
+                >
+                  Web Application
+                </p>
+                <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">
+                  Absensi Ujian Digital
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-primary)] leading-relaxed mb-4"
+                >
+                  Aplikasi berbasis web untuk merekam dan mengelola kehadiran
+                  siswa saat ujian secara efisien dan paperless.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto"
+              >
+                <span>PHP</span><span>MySQL</span><span>JavaScript</span
+                ><span>HTML/CSS</span>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="contact" class="py-20 text-center">
-            <h2 class="text-3xl font-bold text-[var(--text-heading)] mb-4">Let's Connect</h2>
-            <p class="max-w-xl mx-auto text-[var(--text-primary)] mb-8">
-                Saya selalu terbuka untuk diskusi proyek baru atau peluang kolaborasi. Jangan ragu untuk menghubungi saya!
-            </p>
-            <a href="mailto:hello.revan@example.com"
-               class="inline-block bg-[var(--accent-color)] text-black font-semibold px-8 py-3 rounded hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
-                Get In Touch
-            </a>
-        </section>
+          <div class="project-card" data-modal-target="modal-roblox">
+            <div class="project-card-image">
+              <img
+                src="https://files.clearlydev.com/site-assets/2023/09/roblox-banner-new.jpeg"
+                alt="Roblox Game Screenshot"
+              />
+            </div>
+            <div class="project-card-content">
+              <div>
+                <p
+                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-2"
+                >
+                  Game Development
+                </p>
+                <h3 class="text-xl font-bold text-[var(--text-heading)] mb-2">
+                  "Neo-Sidoarjo" City RP
+                </h3>
+                <p
+                  class="text-sm text-[var(--text-primary)] leading-relaxed mb-4"
+                >
+                  Sebuah game Roleplay di platform Roblox dengan tema kota
+                  modern. Fokus pada sistem ekonomi, pekerjaan, dan interaksi
+                  pemain.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-roboto-mono text-slate-400 mt-auto"
+              >
+                <span>Roblox Studio</span><span>Lua</span
+                ><span>Game Design</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="py-20 text-center">
+        <h2 class="text-3xl font-bold text-[var(--text-heading)] mb-4">
+          Let's Connect
+        </h2>
+        <p class="max-w-xl mx-auto text-[var(--text-primary)] mb-8">
+          Saya selalu terbuka untuk diskusi proyek baru atau peluang kolaborasi.
+          Jangan ragu untuk menghubungi saya!
+        </p>
+        <a
+          href="mailto:hello.revan@example.com"
+          class="inline-block bg-[var(--accent-color)] text-black font-semibold px-8 py-3 rounded hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+        >
+          Get In Touch
+        </a>
+      </section>
+      <section id="ratings" class="py-20 text-center">
+        <h2 class="text-3xl font-bold text-[var(--text-heading)] mb-4">
+          Leave a Rating
+        </h2>
+        <p class="max-w-xl mx-auto text-[var(--text-primary)] mb-8">
+          Beri rating untuk portofolio ini.
+        </p>
+
+        <div class="max-w-lg mx-auto p-8 rounded-lg">
+          <div class="flex items-center justify-center space-x-2">
+            <span
+              data-rating="1"
+              class="star-rating text-3xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-colors"
+              >★</span
+            >
+            <span
+              data-rating="2"
+              class="star-rating text-3xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-colors"
+              >★</span
+            >
+            <span
+              data-rating="3"
+              class="star-rating text-3xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-colors"
+              >★</span
+            >
+            <span
+              data-rating="4"
+              class="star-rating text-3xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-colors"
+              >★</span
+            >
+            <span
+              data-rating="5"
+              class="star-rating text-3xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-colors"
+              >★</span
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="text-center py-8 border-t border-[var(--border-color)]">
-        <p class="text-sm text-slate-500 font-roboto-mono">
-            Designed & Built by Revan
-        </p>
+      <p class="text-sm text-slate-500 font-roboto-mono">
+        Designed & Built by Revan
+      </p>
     </footer>
 
     <div id="modal-rapor" class="modal-backdrop">
-        <div class="modal-content">
-            <img src="https://placehold.co/800x450/161B22/C9D1D9?text=Tampilan+Rapor+Online" alt="Detail Rapor Online" class="modal-image">
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">Rapor Online Sekolah</h3>
-                <div class="space-y-4 text-[var(--text-primary)]">
-                    <p>Aplikasi ini dibangun menggunakan framework **Laravel** untuk menciptakan sistem yang terstruktur dan aman. Tujuannya adalah menggantikan proses manual pencatatan nilai dengan sistem digital terpusat.</p>
-                    <h4 class="font-bold text-[var(--text-heading)]">Fitur Utama:</h4>
-                    <ul class="list-disc list-inside space-y-1">
-                        <li>Multi-user role (Admin, Guru, Siswa).</li>
-                        <li>CRUD (Create, Read, Update, Delete) untuk data siswa, guru, dan mata pelajaran.</li>
-                        <li>Input nilai per semester oleh guru wali kelas.</li>
-                        <li>Generate PDF rapor secara otomatis.</li>
-                        <li>Dashboard monitoring untuk admin sekolah.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4">
-                        <span class="bg-[#2d3748] px-3 py-1 rounded-full">Laravel</span>
-                        <span class="bg-[#2d3748] px-3 py-1 rounded-full">PHP</span>
-                        <span class="bg-[#2d3748] px-3 py-1 rounded-full">MySQL</span>
-                        <span class="bg-[#2d3748] px-3 py-1 rounded-full">Bootstrap</span>
-                    </div>
-                </div>
+      <div class="modal-content">
+        <img
+          src="rapor_online.png"
+          alt="Detail Rapor Online"
+          class="modal-image"
+        />
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">
+            Rapor Online Sekolah
+          </h3>
+          <div class="space-y-4 text-[var(--text-primary)]">
+            <p>
+              Aplikasi ini dibangun menggunakan framework **Laravel** untuk
+              menciptakan sistem yang terstruktur dan aman. Tujuannya adalah
+              menggantikan proses manual pencatatan nilai dengan sistem digital
+              terpusat.
+            </p>
+            <h4 class="font-bold text-[var(--text-heading)]">Fitur Utama:</h4>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Multi-user role (Admin, Guru, Siswa).</li>
+              <li>
+                CRUD (Create, Read, Update, Delete) untuk data siswa, guru, dan
+                mata pelajaran.
+              </li>
+              <li>Input nilai per semester oleh guru wali kelas.</li>
+              <li>Generate PDF rapor secara otomatis.</li>
+              <li>Dashboard monitoring untuk admin sekolah.</li>
+            </ul>
+            <div
+              class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4"
+            >
+              <span class="bg-[#2d3748] px-3 py-1 rounded-full">Laravel</span>
+              <span class="bg-[#2d3748] px-3 py-1 rounded-full">PHP</span>
+              <span class="bg-[#2d3748] px-3 py-1 rounded-full">MySQL</span>
+              <span class="bg-[#2d3748] px-3 py-1 rounded-full">Bootstrap</span>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    
+
     <div id="modal-absensi" class="modal-backdrop">
-        <div class="modal-content">
-            <img src="https://placehold.co/800x450/161B22/C9D1D9?text=Tampilan+Absensi+Ujian" alt="Detail Absensi Ujian" class="modal-image">
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">Absensi Ujian Digital</h3>
-                <p>Aplikasi sederhana namun fungsional yang dibangun dengan **PHP native**. Proyek ini fokus pada kecepatan dan kemudahan penggunaan bagi pengawas ujian untuk mencatat kehadiran peserta.</p>
-                <h4 class="font-bold text-[var(--text-heading)] mt-4">Alur Kerja:</h4>
-                <ul class="list-disc list-inside space-y-1">
-                    <li>Pengawas login ke sistem.</li>
-                    <li>Memilih sesi ujian dan ruangan.</li>
-                    <li>Menampilkan daftar peserta ujian di ruangan tersebut.</li>
-                    <li>Menandai status kehadiran (Hadir, Absen, Terlambat) untuk setiap siswa.</li>
-                    <li>Menyimpan data secara real-time ke database.</li>
-                </ul>
-                <div class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4">
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">PHP</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">MySQL</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">JavaScript</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">AJAX</span>
-                </div>
-            </div>
+      <div class="modal-content">
+        <img
+          src="absensi-ujian.png"
+          alt="Detail Absensi Ujian"
+          class="modal-image"
+        />
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">
+            Absensi Ujian Digital
+          </h3>
+          <p>
+            Aplikasi sederhana namun fungsional yang dibangun dengan **PHP
+            native**. Proyek ini fokus pada kecepatan dan kemudahan penggunaan
+            bagi pengawas ujian untuk mencatat kehadiran peserta.
+          </p>
+          <h4 class="font-bold text-[var(--text-heading)] mt-4">Alur Kerja:</h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>Pengawas login ke sistem.</li>
+            <li>Memilih sesi ujian dan ruangan.</li>
+            <li>Menampilkan daftar peserta ujian di ruangan tersebut.</li>
+            <li>
+              Menandai status kehadiran (Hadir, Absen, Terlambat) untuk setiap
+              siswa.
+            </li>
+            <li>Menyimpan data secara real-time ke database.</li>
+          </ul>
+          <div
+            class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4"
+          >
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">PHP</span>
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">MySQL</span>
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">JavaScript</span>
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">AJAX</span>
+          </div>
         </div>
+      </div>
     </div>
 
     <div id="modal-roblox" class="modal-backdrop">
-        <div class="modal-content">
-            <img src="https://placehold.co/800x450/161B22/C9D1D9?text=Gameplay+Roblox+Game" alt="Detail Roblox Game" class="modal-image">
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">Roblox Game: "Neo-Sidoarjo" City RP</h3>
-                <p>Ini adalah proyek passion saya di dunia game development. Saya merancang dan memprogram berbagai sistem di dalam game menggunakan **Lua** di lingkungan **Roblox Studio**.</p>
-                <h4 class="font-bold text-[var(--text-heading)] mt-4">Sistem yang Dikembangkan:</h4>
-                <ul class="list-disc list-inside space-y-1">
-                    <li>**Sistem Ekonomi:** Mata uang dalam game, ATM, dan sistem gaji untuk pekerjaan.</li>
-                    <li>**Sistem Pekerjaan:** Pemain dapat memilih pekerjaan seperti polisi, dokter, atau supir taksi.</li>
-                    <li>**Inventaris & Toko:** Sistem untuk membeli, menyimpan, dan menggunakan item.</li>
-                    <li>**Desain UI:** Merancang antarmuka pengguna (UI) untuk menu, inventaris, dan notifikasi.</li>
-                </ul>
-                <div class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4">
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">Roblox Studio</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">Lua</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">Game Design</span>
-                    <span class="bg-[#2d3748] px-3 py-1 rounded-full">UI/UX</span>
-                </div>
-            </div>
+      <div class="modal-content">
+        <img
+          src="https://files.clearlydev.com/site-assets/2023/09/roblox-banner-new.jpeg"
+          alt="Detail Roblox Game"
+          class="modal-image"
+        />
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">
+            Roblox Game: "Neo-Sidoarjo" City RP
+          </h3>
+          <p>
+            Ini adalah proyek passion saya di dunia game development. Saya
+            merancang dan memprogram berbagai sistem di dalam game menggunakan
+            **Lua** di lingkungan **Roblox Studio**.
+          </p>
+          <h4 class="font-bold text-[var(--text-heading)] mt-4">
+            Sistem yang Dikembangkan:
+          </h4>
+          <ul class="list-disc list-inside space-y-1">
+            <li>
+              **Sistem Ekonomi:** Mata uang dalam game, ATM, dan sistem gaji
+              untuk pekerjaan.
+            </li>
+            <li>
+              **Sistem Pekerjaan:** Pemain dapat memilih pekerjaan seperti
+              polisi, dokter, atau supir taksi.
+            </li>
+            <li>
+              **Inventaris & Toko:** Sistem untuk membeli, menyimpan, dan
+              menggunakan item.
+            </li>
+            <li>
+              **Desain UI:** Merancang antarmuka pengguna (UI) untuk menu,
+              inventaris, dan notifikasi.
+            </li>
+          </ul>
+          <div
+            class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 pt-4"
+          >
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full"
+              >Roblox Studio</span
+            >
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">Lua</span>
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">Game Design</span>
+            <span class="bg-[#2d3748] px-3 py-1 rounded-full">UI/UX</span>
+          </div>
         </div>
+      </div>
     </div>
     <script>
-        // Typed.js initialization
-        new Typed('#typed-text', {
-            strings: ['I build robust backend systems.', 'I design intuitive web interfaces.', 'I develop engaging games.'],
-            typeSpeed: 40,
-            backSpeed: 20,
-            backDelay: 2000,
-            loop: true,
-            cursorChar: '|',
-        });
+      // Manual Rating Script (No Database)
+      const stars = document.querySelectorAll(".star-rating");
 
-        // Modal Interaction Script
-        const projectCards = document.querySelectorAll('.project-card');
-        const modals = document.querySelectorAll('.modal-backdrop');
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          const value = star.getAttribute("data-rating");
 
-        projectCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const modalId = card.getAttribute('data-modal-target');
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.add('active');
-                }
-            });
-        });
-
-        modals.forEach(modal => {
-            modal.addEventListener('click', (event) => {
-                // Close modal if backdrop is clicked
-                if (event.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                modals.forEach(modal => {
-                    modal.classList.remove('active');
-                });
+          stars.forEach((s) => {
+            if (parseInt(s.getAttribute("data-rating")) <= parseInt(value)) {
+              s.classList.remove("text-slate-500");
+              s.classList.add("text-yellow-400");
+            } else {
+              s.classList.remove("text-yellow-400");
+              s.classList.add("text-slate-500");
             }
+          });
         });
+      });
+      // Typed.js initialization
+      new Typed("#typed-text", {
+        strings: [
+          "I build robust backend systems.",
+          "I design intuitive web interfaces.",
+          "I develop engaging games.",
+        ],
+        typeSpeed: 40,
+        backSpeed: 20,
+        backDelay: 2000,
+        loop: true,
+        cursorChar: "|",
+      });
+
+      // Modal Interaction Script
+      const projectCards = document.querySelectorAll(".project-card");
+      const modals = document.querySelectorAll(".modal-backdrop");
+
+      projectCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const modalId = card.getAttribute("data-modal-target");
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add("active");
+          }
+        });
+      });
+
+      modals.forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+          // Close modal if backdrop is clicked
+          if (event.target === modal) {
+            modal.classList.remove("active");
+          }
+        });
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          modals.forEach((modal) => {
+            modal.classList.remove("active");
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
