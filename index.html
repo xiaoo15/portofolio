@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -31,7 +31,12 @@
       /* Enhanced color palette with gradients */
       :root {
         --bg-color: #0d1117;
-        --bg-gradient: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a1f29 100%);
+        --bg-gradient: linear-gradient(
+          135deg,
+          #0d1117 0%,
+          #161b22 50%,
+          #1a1f29 100%
+        );
         --text-primary: #c9d1d9;
         --text-heading: #f0f6fc;
         --accent-color: #58e6d9;
@@ -63,9 +68,16 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
-          radial-gradient(circle at 20% 30%, rgba(88, 230, 217, 0.05) 0%, transparent 50%),
-          radial-gradient(circle at 80% 70%, rgba(41, 121, 255, 0.05) 0%, transparent 50%);
+        background: radial-gradient(
+            circle at 20% 30%,
+            rgba(88, 230, 217, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 70%,
+            rgba(41, 121, 255, 0.05) 0%,
+            transparent 50%
+          );
         z-index: -1;
       }
 
@@ -84,8 +96,12 @@
       }
 
       @keyframes gradient {
-        0% { background-position: 0% center; }
-        100% { background-position: 200% center; }
+        0% {
+          background-position: 0% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
       }
 
       /* Glowing effect */
@@ -109,13 +125,18 @@
       }
 
       .project-card::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent-color),
+          transparent
+        );
         z-index: 2;
         transform: scaleX(0);
         transition: transform 0.6s ease;
@@ -129,7 +150,8 @@
         transform: translateY(-12px) scale(1.02);
         background: var(--card-bg-hover);
         border-color: var(--accent-color);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(88, 230, 217, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(88, 230, 217, 0.2);
       }
 
       .project-card-image {
@@ -139,13 +161,17 @@
       }
 
       .project-card-image::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to bottom, transparent 60%, rgba(13, 17, 23, 0.9) 100%);
+        background: linear-gradient(
+          to bottom,
+          transparent 60%,
+          rgba(13, 17, 23, 0.9) 100%
+        );
         z-index: 1;
       }
 
@@ -182,13 +208,18 @@
       }
 
       .skill-tag::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(88, 230, 217, 0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(88, 230, 217, 0.2),
+          transparent
+        );
         transition: left 0.6s ease;
       }
 
@@ -259,14 +290,19 @@
       }
 
       .star-rating.active {
-        color: #FFD700;
+        color: #ffd700;
         transform: scale(1.2);
       }
 
       /* Floating animation */
       @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-15px); }
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
       }
 
       .floating {
@@ -309,7 +345,7 @@
       }
 
       .nav-link::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -5px;
         left: 0;
@@ -333,18 +369,26 @@
         z-index: -1;
       }
     </style>
-</head>
-<body class="mx-auto max-w-screen-xl px-6 md:px-8 selection:bg-[var(--accent-color)] selection:text-black overflow-x-hidden">
+  </head>
+  <body
+    class="mx-auto max-w-screen-xl px-6 md:px-8 selection:bg-[var(--accent-color)] selection:text-black overflow-x-hidden"
+  >
     <!-- Particles container -->
     <div id="particles-js"></div>
-    
-    <header class="py-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300">
-    <header class="py-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300">
-        <a href="#" class="text-3xl font-black text-[var(--text-heading)] relative group">
+
+    <header
+      class="py-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300"
+    >
+      <a
+        href="#"
+        class="text-3xl font-black text-[var(--text-heading)] relative group"
+      >
         <span class="gradient-text">REVAN.</span>
-        <span class="absolute -bottom-1 left-0 w-0 h-1 bg-[var(--accent-color)] group-hover:w-full transition-all duration-300"></span>
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-1 bg-[var(--accent-color)] group-hover:w-full transition-all duration-300"
+        ></span>
       </a>
-      
+
       <nav class="hidden md:flex items-center space-x-10 text-sm">
         <a
           href="#about"
@@ -367,7 +411,7 @@
           >Contact</a
         >
       </nav>
-      
+
       <a
         href="https://drive.google.com/file/d/1ewx1LBHj_GVEeOue5pPKv2H-sKvZ201N/view?usp=sharing"
         target="_blank"
@@ -375,7 +419,9 @@
         class="font-roboto-mono text-sm border border-[var(--accent-color)] text-[var(--accent-color)] px-5 py-2.5 rounded-lg hover:bg-[var(--accent-color)] hover:text-black transition-all duration-300 glow-effect hover:glow-effect relative overflow-hidden group"
       >
         <span class="relative z-10">My Resume</span>
-        <span class="absolute inset-0 bg-[var(--accent-color)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+        <span
+          class="absolute inset-0 bg-[var(--accent-color)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
+        ></span>
       </a>
     </header>
 
@@ -385,11 +431,18 @@
         class="min-h-screen flex flex-col justify-center py-20 relative overflow-hidden"
       >
         <!-- Animated background elements -->
-        <div class="absolute top-20 left-10 w-20 h-20 rounded-full bg-[var(--accent-color)] opacity-10 blur-xl floating"></div>
-        <div class="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-blue-500 opacity-10 blur-xl floating" style="animation-delay: 2s;"></div>
-        
+        <div
+          class="absolute top-20 left-10 w-20 h-20 rounded-full bg-[var(--accent-color)] opacity-10 blur-xl floating"
+        ></div>
+        <div
+          class="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-blue-500 opacity-10 blur-xl floating"
+          style="animation-delay: 2s"
+        ></div>
+
         <div class="max-w-4xl relative z-10">
-          <p class="font-roboto-mono text-lg text-[var(--accent-color)] mb-4 flex items-center">
+          <p
+            class="font-roboto-mono text-lg text-[var(--accent-color)] mb-4 flex items-center"
+          >
             <span class="w-10 h-px bg-[var(--accent-color)] mr-3"></span>
             Hi, my name is
           </p>
@@ -404,11 +457,12 @@
           <p
             class="text-xl text-[var(--text-primary)] max-w-2xl leading-relaxed mb-12"
           >
-            I'm a passionate developer specializing in building exceptional digital
-            experiences. From robust backend systems to engaging game
-            development, I enjoy bringing ideas to life with clean, efficient code.
+            I'm a passionate developer specializing in building exceptional
+            digital experiences. From robust backend systems to engaging game
+            development, I enjoy bringing ideas to life with clean, efficient
+            code.
           </p>
-          
+
           <div class="flex space-x-6 mt-10 text-2xl text-slate-400">
             <a
               href="https://github.com/xiaoo15"
@@ -435,11 +489,15 @@
               ><i class="fab fa-instagram"></i
             ></a>
           </div>
-          
+
           <!-- Scroll indicator -->
           <div class="mt-20 flex flex-col items-center">
-            <p class="font-roboto-mono text-sm text-slate-500 mb-2">Scroll to explore</p>
-            <div class="w-px h-16 bg-gradient-to-b from-[var(--accent-color)] to-transparent"></div>
+            <p class="font-roboto-mono text-sm text-slate-500 mb-2">
+              Scroll to explore
+            </p>
+            <div
+              class="w-px h-16 bg-gradient-to-b from-[var(--accent-color)] to-transparent"
+            ></div>
           </div>
         </div>
       </section>
@@ -449,16 +507,20 @@
           class="text-4xl font-black text-center text-[var(--text-heading)] mb-16 relative"
         >
           <span class="gradient-text">Technologies & Skills</span>
-          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></span>
+          <span
+            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
+          ></span>
         </h2>
         <div class="max-w-5xl mx-auto">
           <div class="mb-12">
-            <h3 class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center">
+            <h3
+              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
+            >
               <lottie-player
                 src="https://assets10.lottiefiles.com/packages/lf20_uk4b9p2q.json"
                 background="transparent"
                 speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px;"
+                style="width: 40px; height: 40px; margin-right: 10px"
                 loop
                 autoplay
               ></lottie-player>
@@ -475,14 +537,16 @@
               <span class="skill-tag">GraphQL</span>
             </div>
           </div>
-          
+
           <div class="mb-12">
-            <h3 class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center">
+            <h3
+              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
+            >
               <lottie-player
                 src="https://assets10.lottiefiles.com/packages/lf20_2cwDXD.json"
                 background="transparent"
                 speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px;"
+                style="width: 40px; height: 40px; margin-right: 10px"
                 loop
                 autoplay
               ></lottie-player>
@@ -499,14 +563,16 @@
               <span class="skill-tag">Webpack</span>
             </div>
           </div>
-          
+
           <div>
-            <h3 class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center">
+            <h3
+              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
+            >
               <lottie-player
                 src="https://assets10.lottiefiles.com/packages/lf20_pmYwPN.json"
                 background="transparent"
                 speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px;"
+                style="width: 40px; height: 40px; margin-right: 10px"
                 loop
                 autoplay
               ></lottie-player>
@@ -530,9 +596,11 @@
           class="text-4xl font-black text-center text-[var(--text-heading)] mb-20 relative"
         >
           <span class="gradient-text">Featured Projects</span>
-          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></span>
+          <span
+            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
+          ></span>
         </h2>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Project 1 -->
           <div class="project-card" data-modal-target="modal-rapor">
@@ -542,7 +610,10 @@
                 alt="Rapor Online Sekolah Screenshot"
               />
               <div class="absolute top-4 right-4 z-10">
-                <span class="bg-[var(--accent-color)] text-white text-xs font-bold px-3 py-1 rounded-full">Full Stack</span>
+                <span
+                  class="bg-[var(--accent-color)] text-white text-xs font-bold px-3 py-1 rounded-full"
+                  >Full Stack</span
+                >
               </div>
             </div>
             <div class="project-card-content">
@@ -556,10 +627,10 @@
                 <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
                   Rapor Online Sekolah
                 </h3>
-                <p
-                  class="text-[var(--text-primary)] leading-relaxed mb-6"
-                >
-                  A comprehensive digital report card system for schools, enabling teachers to input grades and students to view academic results online.
+                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
+                  A comprehensive digital report card system for schools,
+                  enabling teachers to input grades and students to view
+                  academic results online.
                 </p>
               </div>
               <div
@@ -568,7 +639,9 @@
                 <span class="px-3 py-1 bg-gray-900 rounded-full">Laravel</span>
                 <span class="px-3 py-1 bg-gray-900 rounded-full">PHP</span>
                 <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Bootstrap</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >Bootstrap</span
+                >
               </div>
             </div>
           </div>
@@ -581,7 +654,10 @@
                 alt="Absensi Ujian Digital Screenshot"
               />
               <div class="absolute top-4 right-4 z-10">
-                <span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Web App</span>
+                <span
+                  class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+                  >Web App</span
+                >
               </div>
             </div>
             <div class="project-card-content">
@@ -595,10 +671,9 @@
                 <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
                   Absensi Ujian Digital
                 </h3>
-                <p
-                  class="text-[var(--text-primary)] leading-relaxed mb-6"
-                >
-                  A web-based application for efficiently recording and managing student attendance during exams in a paperless environment.
+                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
+                  A web-based application for efficiently recording and managing
+                  student attendance during exams in a paperless environment.
                 </p>
               </div>
               <div
@@ -606,7 +681,9 @@
               >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">PHP</span>
                 <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">JavaScript</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >JavaScript</span
+                >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">AJAX</span>
               </div>
             </div>
@@ -620,7 +697,10 @@
                 alt="Roblox Game Screenshot"
               />
               <div class="absolute top-4 right-4 z-10">
-                <span class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">Game Dev</span>
+                <span
+                  class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+                  >Game Dev</span
+                >
               </div>
             </div>
             <div class="project-card-content">
@@ -634,18 +714,21 @@
                 <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
                   "Neo-Sidoarjo" City RP
                 </h3>
-                <p
-                  class="text-[var(--text-primary)] leading-relaxed mb-6"
-                >
-                  A Roleplay game on Roblox platform with modern city theme. Focus on economic systems, jobs, and player interactions.
+                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
+                  A Roleplay game on Roblox platform with modern city theme.
+                  Focus on economic systems, jobs, and player interactions.
                 </p>
               </div>
               <div
                 class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
               >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Roblox Studio</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >Roblox Studio</span
+                >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">Lua</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Game Design</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >Game Design</span
+                >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">UI/UX</span>
               </div>
             </div>
@@ -658,7 +741,10 @@
                 alt="VolunTeam Dashboard Screenshot"
               />
               <div class="absolute top-4 right-4 z-10">
-                <span class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">Full Stack</span>
+                <span
+                  class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full"
+                  >Full Stack</span
+                >
               </div>
             </div>
             <div class="project-card-content">
@@ -672,18 +758,23 @@
                 <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
                   VolunTeam Platform
                 </h3>
-                <p
-                  class="text-[var(--text-primary)] leading-relaxed mb-6"
-                >
-                  A comprehensive volunteer management system built with <strong>Laravel</strong>. Features secure authentication, CRUD operations, and optimized MySQL database structure for scalability.
+                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
+                  A comprehensive volunteer management system built with
+                  <strong>Laravel</strong>. Features secure authentication, CRUD
+                  operations, and optimized MySQL database structure for
+                  scalability.
                 </p>
               </div>
               <div
                 class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
               >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Laravel 10</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >Laravel 10</span
+                >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Bootstrap 5</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full"
+                  >Bootstrap 5</span
+                >
                 <span class="px-3 py-1 bg-gray-900 rounded-full">MVC Arch</span>
               </div>
             </div>
@@ -692,35 +783,48 @@
       </section>
 
       <section id="contact" class="py-24 text-center section-hidden">
-        <h2 class="text-4xl font-black text-[var(--text-heading)] mb-6 relative inline-block">
+        <h2
+          class="text-4xl font-black text-[var(--text-heading)] mb-6 relative inline-block"
+        >
           <span class="gradient-text">Let's Connect</span>
-          <span class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></span>
+          <span
+            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
+          ></span>
         </h2>
         <p class="max-w-xl mx-auto text-xl text-[var(--text-primary)] mb-10">
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          I'm always open to discussing new projects, creative ideas, or
+          opportunities to be part of your vision.
         </p>
-        
-        <div class="max-w-md mx-auto bg-[var(--card-bg)] rounded-2xl p-8 border border-[var(--border-color)] mb-12">
+
+        <div
+          class="max-w-md mx-auto bg-[var(--card-bg)] rounded-2xl p-8 border border-[var(--border-color)] mb-12"
+        >
           <div class="flex items-center justify-center mb-6">
-            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[var(--accent-color)] to-blue-500 flex items-center justify-center text-2xl">
+            <div
+              class="w-16 h-16 rounded-full bg-gradient-to-r from-[var(--accent-color)] to-blue-500 flex items-center justify-center text-2xl"
+            >
               <i class="fas fa-paper-plane text-black"></i>
             </div>
           </div>
-          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-2">Get In Touch</h3>
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-2">
+            Get In Touch
+          </h3>
           <p class="text-slate-400 font-roboto-mono text-sm mb-6 select-all">
             revanandilaksono.work@gmail.com
           </p>
-          
+
           <a
             href="mailto:revanandilaksono.work@gmail.com"
             class="inline-block bg-gradient-to-r from-[var(--accent-color)] to-blue-500 text-black font-bold px-10 py-4 rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 transform relative overflow-hidden group"
           >
             <span class="relative z-10">Send Message</span>
-            <span class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+            <span
+              class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+            ></span>
           </a>
         </div>
       </section>
-      
+
       <section id="ratings" class="py-20 text-center section-hidden">
         <h2 class="text-3xl font-bold text-[var(--text-heading)] mb-4">
           Leave a Rating
@@ -729,7 +833,9 @@
           How would you rate my portfolio?
         </p>
 
-        <div class="max-w-lg mx-auto p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)]">
+        <div
+          class="max-w-lg mx-auto p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)]"
+        >
           <div class="flex items-center justify-center space-x-2 mb-6">
             <span
               data-rating="1"
@@ -757,20 +863,48 @@
               >★</span
             >
           </div>
-          <p id="rating-text" class="text-lg text-slate-400">Click a star to rate</p>
+          <p id="rating-text" class="text-lg text-slate-400">
+            Click a star to rate
+          </p>
         </div>
       </section>
     </main>
 
-    <footer class="text-center py-12 border-t border-[var(--border-color)] mt-20">
+    <footer
+      class="text-center py-12 border-t border-[var(--border-color)] mt-20"
+    >
       <div class="mb-6">
-        <a href="#" class="text-3xl font-black text-[var(--text-heading)] gradient-text">REVAN.</a>
+        <a
+          href="#"
+          class="text-3xl font-black text-[var(--text-heading)] gradient-text"
+          >REVAN.</a
+        >
       </div>
       <div class="flex justify-center space-x-8 text-2xl text-slate-500 mb-6">
-        <a href="https://github.com/xiaoo15" class="hover:text-[var(--accent-color)] transition-colors" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a
+          href="https://github.com/xiaoo15"
+          class="hover:text-[var(--accent-color)] transition-colors"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a
+          href="#"
+          class="hover:text-[var(--accent-color)] transition-colors"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a
+          href="#"
+          class="hover:text-[var(--accent-color)] transition-colors"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="#"
+          class="hover:text-[var(--accent-color)] transition-colors"
+          aria-label="Twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
       </div>
       <p class="text-sm text-slate-500 font-roboto-mono">
         Designed & Built by Revan • © 2025
@@ -786,21 +920,58 @@
           class="modal-image"
         />
         <div class="p-8">
-          <button class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white" onclick="closeModal('modal-rapor')">
+          <button
+            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
+            onclick="closeModal('modal-rapor')"
+          >
             <i class="fas fa-times"></i>
           </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">Rapor Online Sekolah</h3>
+          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
+            Rapor Online Sekolah
+          </h3>
           <div class="space-y-6 text-[var(--text-primary)]">
             <p class="text-lg">
-              This application was built using the <strong>Laravel</strong> framework to create a structured and secure system. The goal is to replace the manual grading process with a centralized digital system.
+              This application was built using the
+              <strong>Laravel</strong> framework to create a structured and
+              secure system. The goal is to replace the manual grading process
+              with a centralized digital system.
             </p>
-            <h4 class="font-bold text-2xl text-[var(--text-heading)]">Key Features:</h4>
+            <h4 class="font-bold text-2xl text-[var(--text-heading)]">
+              Key Features:
+            </h4>
             <ul class="space-y-3">
-              <li class="flex items-start"><i class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"></i> <span>Multi-user roles (Admin, Teacher, Student).</span></li>
-              <li class="flex items-start"><i class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"></i> <span>CRUD operations for student, teacher, and subject data.</span></li>
-              <li class="flex items-start"><i class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"></i> <span>Grade input per semester by homeroom teachers.</span></li>
-              <li class="flex items-start"><i class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"></i> <span>Automatic PDF report card generation.</span></li>
-              <li class="flex items-start"><i class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"></i> <span>Monitoring dashboard for school administrators.</span></li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span>Multi-user roles (Admin, Teacher, Student).</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span
+                  >CRUD operations for student, teacher, and subject data.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span>Grade input per semester by homeroom teachers.</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span>Automatic PDF report card generation.</span>
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span>Monitoring dashboard for school administrators.</span>
+              </li>
             </ul>
             <div
               class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
@@ -824,20 +995,57 @@
           class="modal-image"
         />
         <div class="p-8">
-          <button class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white" onclick="closeModal('modal-absensi')">
+          <button
+            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
+            onclick="closeModal('modal-absensi')"
+          >
             <i class="fas fa-times"></i>
           </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">Absensi Ujian Digital</h3>
+          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
+            Absensi Ujian Digital
+          </h3>
           <p class="text-lg mb-6">
-            A simple yet functional application built with <strong>native PHP</strong>. This project focuses on speed and ease of use for exam supervisors to record participant attendance.
+            A simple yet functional application built with
+            <strong>native PHP</strong>. This project focuses on speed and ease
+            of use for exam supervisors to record participant attendance.
           </p>
-          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">Workflow:</h4>
+          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">
+            Workflow:
+          </h4>
           <ul class="space-y-3 mb-8">
-            <li class="flex items-start"><i class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"></i> <span>Supervisor logs into the system.</span></li>
-            <li class="flex items-start"><i class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"></i> <span>Selects exam session and room.</span></li>
-            <li class="flex items-start"><i class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"></i> <span>Displays list of exam participants in that room.</span></li>
-            <li class="flex items-start"><i class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"></i> <span>Marks attendance status (Present, Absent, Late) for each student.</span></li>
-            <li class="flex items-start"><i class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"></i> <span>Saves data to database in real-time.</span></li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span>Supervisor logs into the system.</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span>Selects exam session and room.</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span>Displays list of exam participants in that room.</span>
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                >Marks attendance status (Present, Absent, Late) for each
+                student.</span
+              >
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span>Saves data to database in real-time.</span>
+            </li>
           </ul>
           <div
             class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
@@ -860,25 +1068,77 @@
           class="modal-image"
         />
         <div class="p-8">
-          <button class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white" onclick="closeModal('modal-roblox')">
+          <button
+            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
+            onclick="closeModal('modal-roblox')"
+          >
             <i class="fas fa-times"></i>
           </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">Roblox Game: "Neo-Sidoarjo" City RP</h3>
+          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
+            Roblox Game: "Neo-Sidoarjo" City RP
+          </h3>
           <p class="text-lg mb-6">
-            This is my passion project in the world of game development. I designed and programmed various systems within the game using <strong>Lua</strong> in the <strong>Roblox Studio</strong> environment.
+            This is my passion project in the world of game development. I
+            designed and programmed various systems within the game using
+            <strong>Lua</strong> in the
+            <strong>Roblox Studio</strong> environment.
           </p>
-          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">Developed Systems:</h4>
+          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">
+            Developed Systems:
+          </h4>
           <ul class="space-y-4 mb-8">
-            <li class="flex items-start"><i class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Economic System:</strong> In-game currency, ATMs, and salary system for jobs.</span></li>
-            <li class="flex items-start"><i class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Job System:</strong> Players can choose jobs like police officer, doctor, or taxi driver.</span></li>
-            <li class="flex items-start"><i class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Inventory & Shop:</strong> System for buying, storing, and using items.</span></li>
-            <li class="flex items-start"><i class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>UI Design:</strong> Designing user interfaces (UI) for menus, inventory, and notifications.</span></li>
-            <li class="flex items-start"><i class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Vehicle System:</strong> Custom vehicle mechanics with ownership and customization.</span></li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                ><strong>Economic System:</strong> In-game currency, ATMs, and
+                salary system for jobs.</span
+              >
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                ><strong>Job System:</strong> Players can choose jobs like
+                police officer, doctor, or taxi driver.</span
+              >
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                ><strong>Inventory & Shop:</strong> System for buying, storing,
+                and using items.</span
+              >
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                ><strong>UI Design:</strong> Designing user interfaces (UI) for
+                menus, inventory, and notifications.</span
+              >
+            </li>
+            <li class="flex items-start">
+              <i
+                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
+              ></i>
+              <span
+                ><strong>Vehicle System:</strong> Custom vehicle mechanics with
+                ownership and customization.</span
+              >
+            </li>
           </ul>
           <div
             class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
           >
-            <span class="bg-gray-900 px-4 py-2 rounded-full">Roblox Studio</span>
+            <span class="bg-gray-900 px-4 py-2 rounded-full"
+              >Roblox Studio</span
+            >
             <span class="bg-gray-900 px-4 py-2 rounded-full">Lua</span>
             <span class="bg-gray-900 px-4 py-2 rounded-full">Game Design</span>
             <span class="bg-gray-900 px-4 py-2 rounded-full">UI/UX</span>
@@ -896,52 +1156,105 @@
           class="modal-image"
         />
         <div class="p-8">
-          <button class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white" onclick="closeModal('modal-volunteam')">
+          <button
+            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
+            onclick="closeModal('modal-volunteam')"
+          >
             <i class="fas fa-times"></i>
           </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">VolunTeam Platform</h3>
+          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
+            VolunTeam Platform
+          </h3>
           <div class="space-y-6 text-[var(--text-primary)]">
             <p class="text-lg">
-              A centralized volunteer management system engineered with <strong>Laravel 10</strong>. This platform solves the complexity of recruiting, tracking, and managing volunteers for large-scale events.
-              <br><br>
-              Built with <strong>Clean Architecture</strong> principles to ensure maintainability and scalability for future development.
+              A centralized volunteer management system engineered with
+              <strong>Laravel 10</strong>. This platform solves the complexity
+              of recruiting, tracking, and managing volunteers for large-scale
+              events. <br /><br />
+              Built with <strong>Clean Architecture</strong> principles to
+              ensure maintainability and scalability for future development.
             </p>
-            <h4 class="font-bold text-2xl text-[var(--text-heading)]">Key Technical Features:</h4>
+            <h4 class="font-bold text-2xl text-[var(--text-heading)]">
+              Key Technical Features:
+            </h4>
             <ul class="space-y-3">
-              <li class="flex items-start"><i class="fas fa-shield-alt text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Secure Authentication:</strong> Multi-guard login system for Admins, Organizers, and Volunteers.</span></li>
-              <li class="flex items-start"><i class="fas fa-database text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Advanced CRUD:</strong> Efficient data handling for Event creation and Volunteer application tracking.</span></li>
-              <li class="flex items-start"><i class="fas fa-code-branch text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>MVC Architecture:</strong> Separation of logic (Controller) and interface (View) for cleaner code.</span></li>
-              <li class="flex items-start"><i class="fas fa-mobile-alt text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Responsive UI:</strong> Built with Bootstrap 5 to ensure accessibility across devices.</span></li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-shield-alt text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span
+                  ><strong>Secure Authentication:</strong> Multi-guard login
+                  system for Admins, Organizers, and Volunteers.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-database text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span
+                  ><strong>Advanced CRUD:</strong> Efficient data handling for
+                  Event creation and Volunteer application tracking.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-code-branch text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span
+                  ><strong>MVC Architecture:</strong> Separation of logic
+                  (Controller) and interface (View) for cleaner code.</span
+                >
+              </li>
+              <li class="flex items-start">
+                <i
+                  class="fas fa-mobile-alt text-[var(--accent-color)] mr-3 mt-1"
+                ></i>
+                <span
+                  ><strong>Responsive UI:</strong> Built with Bootstrap 5 to
+                  ensure accessibility across devices.</span
+                >
+              </li>
             </ul>
             <div
               class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
             >
               <span class="bg-gray-900 px-4 py-2 rounded-full">Laravel 10</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">MySQL Relational DB</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">Blade Engine</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">REST Structure</span>
+              <span class="bg-gray-900 px-4 py-2 rounded-full"
+                >MySQL Relational DB</span
+              >
+              <span class="bg-gray-900 px-4 py-2 rounded-full"
+                >Blade Engine</span
+              >
+              <span class="bg-gray-900 px-4 py-2 rounded-full"
+                >REST Structure</span
+              >
             </div>
           </div>
         </div>
       </div>
-</div>
+    </div>
 
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
       // Typed.js initialization
-      new Typed('#typed-text', {
-          strings: ['Full Stack Developer', 'Game Developer', 'Problem Solver', 'Creative Thinker'],
-          typeSpeed: 50,
-          backSpeed: 30,
-          backDelay: 2000,
-          loop: true,
-          cursorChar: '|',
+      new Typed("#typed-text", {
+        strings: [
+          "Full Stack Developer",
+          "Game Developer",
+          "Problem Solver",
+          "Creative Thinker",
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true,
+        cursorChar: "|",
       });
 
       // Particles.js initialization
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         particlesJS("particles-js", {
           particles: {
             number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -954,7 +1267,7 @@
               distance: 150,
               color: "#58e6d9",
               opacity: 0.1,
-              width: 1
+              width: 1,
             },
             move: {
               enable: true,
@@ -963,167 +1276,177 @@
               random: true,
               straight: false,
               out_mode: "out",
-              bounce: false
-            }
+              bounce: false,
+            },
           },
           interactivity: {
             detect_on: "canvas",
             events: {
               onhover: { enable: true, mode: "repulse" },
-              onclick: { enable: true, mode: "push" }
-            }
+              onclick: { enable: true, mode: "push" },
+            },
           },
-          retina_detect: true
+          retina_detect: true,
         });
       });
 
       // Modal Interaction Script
-      const projectCards = document.querySelectorAll('.project-card');
-      const modals = document.querySelectorAll('.modal-backdrop');
+      const projectCards = document.querySelectorAll(".project-card");
+      const modals = document.querySelectorAll(".modal-backdrop");
 
-      projectCards.forEach(card => {
-          card.addEventListener('click', () => {
-              const modalId = card.getAttribute('data-modal-target');
-              const modal = document.getElementById(modalId);
-              if (modal) {
-                  modal.classList.add('active');
-                  document.body.style.overflow = 'hidden';
-              }
-          });
+      projectCards.forEach((card) => {
+        card.addEventListener("click", () => {
+          const modalId = card.getAttribute("data-modal-target");
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        });
       });
 
-      modals.forEach(modal => {
-          modal.addEventListener('click', (event) => {
-              // Close modal if backdrop is clicked
-              if (event.target === modal) {
-                  modal.classList.remove('active');
-                  document.body.style.overflow = 'auto';
-              }
-          });
+      modals.forEach((modal) => {
+        modal.addEventListener("click", (event) => {
+          // Close modal if backdrop is clicked
+          if (event.target === modal) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+          }
+        });
       });
 
       function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = 'auto';
+          modal.classList.remove("active");
+          document.body.style.overflow = "auto";
         }
       }
 
       // Close modal with Escape key
-      document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape') {
-              modals.forEach(modal => {
-                  modal.classList.remove('active');
-                  document.body.style.overflow = 'auto';
-              });
-          }
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          modals.forEach((modal) => {
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+          });
+        }
       });
 
       // Manual Rating Script with Confetti
-      const stars = document.querySelectorAll('.star-rating');
-      const ratingText = document.getElementById('rating-text');
+      const stars = document.querySelectorAll(".star-rating");
+      const ratingText = document.getElementById("rating-text");
       const messages = [
         "Thanks for the 1 star. I'll try harder!",
         "Thanks for the 2 stars! I appreciate your feedback.",
         "Thanks for the 3 stars! I'm glad you liked it.",
         "Thanks for the 4 stars! That means a lot.",
-        "WOW! 5 stars! Thank you so much! 🎉"
+        "WOW! 5 stars! Thank you so much! 🎉",
       ];
 
-      stars.forEach(star => {
-          star.addEventListener('click', () => {
-              const value = star.getAttribute('data-rating');
-              
-              stars.forEach(s => {
-                  if (parseInt(s.getAttribute('data-rating')) <= parseInt(value)) {
-                      s.classList.add('active');
-                      s.classList.remove('text-slate-500');
-                      s.classList.add('text-yellow-400');
-                  } else {
-                      s.classList.remove('active');
-                      s.classList.remove('text-yellow-400');
-                      s.classList.add('text-slate-500');
-                  }
-              });
-              
-              ratingText.textContent = messages[value - 1];
-              
-              if (value === '5') {
-                  // Multiple confetti effects
-                  confetti({
-                      particleCount: 150,
-                      spread: 70,
-                      origin: { y: 0.6 }
-                  });
-                  
-                  setTimeout(() => {
-                    confetti({
-                        particleCount: 100,
-                        angle: 60,
-                        spread: 55,
-                        origin: { x: 0, y: 0.6 }
-                    });
-                  }, 250);
-                  
-                  setTimeout(() => {
-                    confetti({
-                        particleCount: 100,
-                        angle: 120,
-                        spread: 55,
-                        origin: { x: 1, y: 0.6 }
-                    });
-                  }, 500);
-              }
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          const value = star.getAttribute("data-rating");
+
+          stars.forEach((s) => {
+            if (parseInt(s.getAttribute("data-rating")) <= parseInt(value)) {
+              s.classList.add("active");
+              s.classList.remove("text-slate-500");
+              s.classList.add("text-yellow-400");
+            } else {
+              s.classList.remove("active");
+              s.classList.remove("text-yellow-400");
+              s.classList.add("text-slate-500");
+            }
           });
-          
-          // Hover effect for stars
-          star.addEventListener('mouseenter', () => {
-              const hoverValue = parseInt(star.getAttribute('data-rating'));
-              stars.forEach(s => {
-                  if (parseInt(s.getAttribute('data-rating')) <= hoverValue) {
-                      s.classList.add('text-yellow-300');
-                  }
+
+          ratingText.textContent = messages[value - 1];
+
+          if (value === "5") {
+            // Multiple confetti effects
+            confetti({
+              particleCount: 150,
+              spread: 70,
+              origin: { y: 0.6 },
+            });
+
+            setTimeout(() => {
+              confetti({
+                particleCount: 100,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0, y: 0.6 },
               });
-          });
-          
-          star.addEventListener('mouseleave', () => {
-              stars.forEach(s => {
-                  if (!s.classList.contains('active')) {
-                      s.classList.remove('text-yellow-300');
-                  }
+            }, 250);
+
+            setTimeout(() => {
+              confetti({
+                particleCount: 100,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1, y: 0.6 },
               });
+            }, 500);
+          }
+        });
+
+        // Hover effect for stars
+        star.addEventListener("mouseenter", () => {
+          const hoverValue = parseInt(star.getAttribute("data-rating"));
+          stars.forEach((s) => {
+            if (parseInt(s.getAttribute("data-rating")) <= hoverValue) {
+              s.classList.add("text-yellow-300");
+            }
           });
+        });
+
+        star.addEventListener("mouseleave", () => {
+          stars.forEach((s) => {
+            if (!s.classList.contains("active")) {
+              s.classList.remove("text-yellow-300");
+            }
+          });
+        });
       });
 
       // Scroll reveal animation
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
       };
 
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('section-visible');
+            entry.target.classList.add("section-visible");
           }
         });
       }, observerOptions);
 
       // Observe all sections
-      document.querySelectorAll('.section-hidden').forEach((section) => {
+      document.querySelectorAll(".section-hidden").forEach((section) => {
         observer.observe(section);
       });
 
       // Add scroll effect to header
-      window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
         if (window.scrollY > 50) {
-          header.classList.add('bg-[var(--bg-color)]', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
+          header.classList.add(
+            "bg-[var(--bg-color)]",
+            "bg-opacity-80",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
         } else {
-          header.classList.remove('bg-[var(--bg-color)]', 'bg-opacity-80', 'backdrop-blur-md', 'shadow-lg');
+          header.classList.remove(
+            "bg-[var(--bg-color)]",
+            "bg-opacity-80",
+            "backdrop-blur-md",
+            "shadow-lg"
+          );
         }
       });
     </script>
-</body>
+  </body>
 </html>
