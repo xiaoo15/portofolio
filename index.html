@@ -338,8 +338,9 @@
     <!-- Particles container -->
     <div id="particles-js"></div>
     
-    <header class="py-8 flex justify-between items-center relative z-10">
-      <a href="#" class="text-3xl font-black text-[var(--text-heading)] relative group">
+    <header class="py-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300">
+    <header class="py-8 flex justify-between items-center sticky top-0 z-50 transition-all duration-300">
+        <a href="#" class="text-3xl font-black text-[var(--text-heading)] relative group">
         <span class="gradient-text">REVAN.</span>
         <span class="absolute -bottom-1 left-0 w-0 h-1 bg-[var(--accent-color)] group-hover:w-full transition-all duration-300"></span>
       </a>
@@ -541,7 +542,7 @@
                 alt="Rapor Online Sekolah Screenshot"
               />
               <div class="absolute top-4 right-4 z-10">
-                <span class="bg-[var(--accent-color)] text-black text-xs font-bold px-3 py-1 rounded-full">Full Stack</span>
+                <span class="bg-[var(--accent-color)] text-white text-xs font-bold px-3 py-1 rounded-full">Full Stack</span>
               </div>
             </div>
             <div class="project-card-content">
@@ -649,6 +650,44 @@
               </div>
             </div>
           </div>
+
+          <div class="project-card" data-modal-target="modal-volunteam">
+            <div class="project-card-image">
+              <img
+                src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
+                alt="VolunTeam Dashboard Screenshot"
+              />
+              <div class="absolute top-4 right-4 z-10">
+                <span class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">Full Stack</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <p
+                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-3 flex items-center"
+                >
+                  <i class="fas fa-database text-xs mr-2"></i>
+                  Web Application
+                </p>
+                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
+                  VolunTeam Platform
+                </h3>
+                <p
+                  class="text-[var(--text-primary)] leading-relaxed mb-6"
+                >
+                  A comprehensive volunteer management system built with <strong>Laravel</strong>. Features secure authentication, CRUD operations, and optimized MySQL database structure for scalability.
+                </p>
+              </div>
+              <div
+                class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
+              >
+                <span class="px-3 py-1 bg-gray-900 rounded-full">Laravel 10</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full">Bootstrap 5</span>
+                <span class="px-3 py-1 bg-gray-900 rounded-full">MVC Arch</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -667,12 +706,13 @@
               <i class="fas fa-paper-plane text-black"></i>
             </div>
           </div>
-          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-4">Get In Touch</h3>
-          <p class="text-[var(--text-primary)] mb-6">
-            Feel free to reach out for collaborations or just to say hello!
+          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-2">Get In Touch</h3>
+          <p class="text-slate-400 font-roboto-mono text-sm mb-6 select-all">
+            revanandilaksono.work@gmail.com
           </p>
+          
           <a
-            href="mailto:hello.revan@example.com"
+            href="mailto:revanandilaksono.work@gmail.com"
             class="inline-block bg-gradient-to-r from-[var(--accent-color)] to-blue-500 text-black font-bold px-10 py-4 rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 transform relative overflow-hidden group"
           >
             <span class="relative z-10">Send Message</span>
@@ -733,7 +773,7 @@
         <a href="#" class="hover:text-[var(--accent-color)] transition-colors" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
       <p class="text-sm text-slate-500 font-roboto-mono">
-        Designed & Built with ❤️ by Revan • © 2023
+        Designed & Built by Revan • © 2025
       </p>
     </footer>
 
@@ -847,6 +887,44 @@
         </div>
       </div>
     </div>
+
+    <div id="modal-volunteam" class="modal-backdrop">
+      <div class="modal-content">
+        <img
+          src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
+          alt="VolunTeam Dashboard Detail"
+          class="modal-image"
+        />
+        <div class="p-8">
+          <button class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white" onclick="closeModal('modal-volunteam')">
+            <i class="fas fa-times"></i>
+          </button>
+          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">VolunTeam Platform</h3>
+          <div class="space-y-6 text-[var(--text-primary)]">
+            <p class="text-lg">
+              A centralized volunteer management system engineered with <strong>Laravel 10</strong>. This platform solves the complexity of recruiting, tracking, and managing volunteers for large-scale events.
+              <br><br>
+              Built with <strong>Clean Architecture</strong> principles to ensure maintainability and scalability for future development.
+            </p>
+            <h4 class="font-bold text-2xl text-[var(--text-heading)]">Key Technical Features:</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start"><i class="fas fa-shield-alt text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Secure Authentication:</strong> Multi-guard login system for Admins, Organizers, and Volunteers.</span></li>
+              <li class="flex items-start"><i class="fas fa-database text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Advanced CRUD:</strong> Efficient data handling for Event creation and Volunteer application tracking.</span></li>
+              <li class="flex items-start"><i class="fas fa-code-branch text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>MVC Architecture:</strong> Separation of logic (Controller) and interface (View) for cleaner code.</span></li>
+              <li class="flex items-start"><i class="fas fa-mobile-alt text-[var(--accent-color)] mr-3 mt-1"></i> <span><strong>Responsive UI:</strong> Built with Bootstrap 5 to ensure accessibility across devices.</span></li>
+            </ul>
+            <div
+              class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
+            >
+              <span class="bg-gray-900 px-4 py-2 rounded-full">Laravel 10</span>
+              <span class="bg-gray-900 px-4 py-2 rounded-full">MySQL Relational DB</span>
+              <span class="bg-gray-900 px-4 py-2 rounded-full">Blade Engine</span>
+              <span class="bg-gray-900 px-4 py-2 rounded-full">REST Structure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
 
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
