@@ -1,1450 +1,864 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Revan - Professional Developer Portfolio. I build modern, responsive, and intuitive web experiences."
-    />
-    <title>Revan | Developer Portfolio</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+    <title>Revan Andi Laksono — Product Designer & Developer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Roboto+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22#58E6D9%22>R.</text></svg>"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
-
-    <style>
-      /* Enhanced color palette with gradients */
-      :root {
-        --bg-color: #0d1117;
-        --bg-gradient: linear-gradient(
-          135deg,
-          #0d1117 0%,
-          #161b22 50%,
-          #1a1f29 100%
-        );
-        --text-primary: #c9d1d9;
-        --text-heading: #f0f6fc;
-        --accent-color: #58e6d9;
-        --accent-glow: rgba(88, 230, 217, 0.4);
-        --card-bg: rgba(22, 27, 34, 0.7);
-        --card-bg-hover: rgba(30, 36, 44, 0.9);
-        --border-color: #30363d;
-        --shadow-color: rgba(0, 0, 0, 0.3);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        background: var(--bg-gradient);
-        color: var(--text-primary);
-        overflow-x: hidden;
-        position: relative;
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-            circle at 20% 30%,
-            rgba(88, 230, 217, 0.05) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 70%,
-            rgba(41, 121, 255, 0.05) 0%,
-            transparent 50%
-          );
-        z-index: -1;
-      }
-
-      .font-roboto-mono {
-        font-family: "Roboto Mono", monospace;
-      }
-
-      /* Animated gradient text */
-      .gradient-text {
-        background: linear-gradient(90deg, #58e6d9, #3a8fff, #58e6d9);
-        background-size: 200% auto;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradient 3s linear infinite;
-      }
-
-      @keyframes gradient {
-        0% {
-          background-position: 0% center;
-        }
-        100% {
-          background-position: 200% center;
-        }
-      }
-
-      /* Glowing effect */
-      .glow-effect {
-        box-shadow: 0 0 20px var(--accent-glow);
-      }
-
-      /* Project Card - Enhanced */
-      .project-card {
-        background: var(--card-bg);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(48, 54, 61, 0.5);
-        border-radius: 1rem;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        position: relative;
-        z-index: 1;
-      }
-
-      .project-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--accent-color),
-          transparent
-        );
-        z-index: 2;
-        transform: scaleX(0);
-        transition: transform 0.6s ease;
-      }
-
-      .project-card:hover::before {
-        transform: scaleX(1);
-      }
-
-      .project-card:hover {
-        transform: translateY(-12px) scale(1.02);
-        background: var(--card-bg-hover);
-        border-color: var(--accent-color);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-          0 0 20px rgba(88, 230, 217, 0.2);
-      }
-
-      .project-card-image {
-        height: 220px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .project-card-image::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          to bottom,
-          transparent 60%,
-          rgba(13, 17, 23, 0.9) 100%
-        );
-        z-index: 1;
-      }
-
-      .project-card-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.8s ease-out;
-      }
-
-      .project-card:hover .project-card-image img {
-        transform: scale(1.1) rotate(1deg);
-      }
-
-      .project-card-content {
-        padding: 1.8rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        position: relative;
-        z-index: 2;
-      }
-
-      /* Skill tags with animation */
-      .skill-tag {
-        background: rgba(88, 230, 217, 0.1);
-        border: 1px solid rgba(88, 230, 217, 0.3);
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .skill-tag::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(88, 230, 217, 0.2),
-          transparent
-        );
-        transition: left 0.6s ease;
-      }
-
-      .skill-tag:hover::before {
-        left: 100%;
-      }
-
-      .skill-tag:hover {
-        background: rgba(88, 230, 217, 0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Modal Styles - Enhanced */
-      .modal-backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(13, 17, 23, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.4s ease;
-        padding: 1rem;
-      }
-
-      .modal-backdrop.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-
-      .modal-content {
-        background: var(--card-bg);
-        border: 1px solid var(--border-color);
-        border-radius: 1rem;
-        width: 90%;
-        max-width: 700px;
-        max-height: 90vh;
-        overflow-y: auto;
-        transform: scale(0.9) translateY(20px);
-        transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        position: relative;
-      }
-
-      .modal-backdrop.active .modal-content {
-        transform: scale(1) translateY(0);
-      }
-
-      .modal-image {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 1rem 1rem 0 0;
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      /* Star rating enhanced */
-      .star-rating {
-        transition: all 0.3s ease;
-        text-shadow: 0 0 8px currentColor;
-      }
-
-      .star-rating.active {
-        color: #ffd700;
-        transform: scale(1.2);
-      }
-
-      /* Floating animation */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-      }
-
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 10px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: rgba(22, 27, 34, 0.5);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: var(--accent-color);
-        border-radius: 5px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #3a8fff;
-      }
-
-      /* Section reveal animation */
-      .section-hidden {
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease;
-      }
-
-      .section-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Navigation underline animation */
-      .nav-link {
-        position: relative;
-      }
-
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--accent-color);
-        transition: width 0.3s ease;
-      }
-
-      .nav-link:hover::after {
-        width: 100%;
-      }
-
-      /* Particles container */
-      #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      }
-    </style>
   </head>
-  <body
-    class="mx-auto max-w-screen-xl px-6 md:px-8 selection:bg-[var(--accent-color)] selection:text-black overflow-x-hidden"
-  >
-    <!-- Particles container -->
-    <div id="particles-js"></div>
+  <body>
+    <!-- LOADING SCREEN -->
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">RVN.</div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+        <span class="loader-text">Crafting experience...</span>
+      </div>
+    </div>
 
-    <header class="py-8 flex justify-between items-center relative z-10">
-      <a
-        href="#"
-        class="text-3xl font-black text-[var(--text-heading)] relative group"
-      >
-        <span class="gradient-text">XIO</span>
-        <span
-          class="absolute -bottom-1 left-0 w-0 h-1 bg-[var(--accent-color)] group-hover:w-full transition-all duration-300"
-        ></span>
-      </a>
+    <!-- CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-follower"></div>
 
-      <nav class="hidden md:flex items-center space-x-10 text-sm">
-        <a
-          href="#about"
-          class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors font-medium"
-          >About</a
-        >
-        <a
-          href="#skills"
-          class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors font-medium"
-          >Skills</a
-        >
-        <a
-          href="#projects"
-          class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors font-medium"
-          >Projects</a
-        >
-        <a
-          href="#contact"
-          class="nav-link text-[var(--text-primary)] hover:text-[var(--accent-color)] transition-colors font-medium"
-          >Contact</a
-        >
-      </nav>
+    <!-- SCROLL PROGRESS -->
+    <div id="scroll-progress"></div>
 
-      <a
-        href="https://drive.google.com/file/d/1ewx1LBHj_GVEeOue5pPKv2H-sKvZ201N/view?usp=sharing"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-roboto-mono text-sm border border-[var(--accent-color)] text-[var(--accent-color)] px-5 py-2.5 rounded-lg hover:bg-[var(--accent-color)] hover:text-black transition-all duration-300 glow-effect hover:glow-effect relative overflow-hidden group"
-      >
-        <span class="relative z-10">My Resume</span>
-        <span
-          class="absolute inset-0 bg-[var(--accent-color)] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-        ></span>
-      </a>
-    </header>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">RVN<span class="dot">.</span></a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta magnetic">Let's talk</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#projects" class="mobile-link">Work</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </div>
+    </nav>
 
-    <main>
-      <section
-        id="about"
-        class="min-h-screen flex flex-col justify-center py-20 relative overflow-hidden"
-      >
-        <!-- Animated background elements -->
-        <div
-          class="absolute top-20 left-10 w-20 h-20 rounded-full bg-[var(--accent-color)] opacity-10 blur-xl floating"
-        ></div>
-        <div
-          class="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-blue-500 opacity-10 blur-xl floating"
-          style="animation-delay: 2s"
-        ></div>
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <canvas id="particle-canvas"></canvas>
+      <div class="grid-overlay"></div>
+      <div class="hero-glow"></div>
 
-        <div class="max-w-4xl relative z-10">
-          <p
-            class="font-roboto-mono text-lg text-[var(--accent-color)] mb-4 flex items-center"
-          >
-            <span class="w-10 h-px bg-[var(--accent-color)] mr-3"></span>
-            Hi, my name is
-          </p>
-          <h1
-            class="text-6xl md:text-8xl font-black text-[var(--text-heading)] mb-4 leading-tight"
-          >
-            Revan.
-          </h1>
-          <h2 class="text-4xl md:text-6xl font-black text-slate-400 mb-8">
-            I'm a <span id="typed-text" class="gradient-text"></span>
-          </h2>
-          <p
-            class="text-xl text-[var(--text-primary)] max-w-2xl leading-relaxed mb-12"
-          >
-            I'm a passionate developer specializing in building exceptional
-            digital experiences. From robust backend systems to engaging game
-            development, I enjoy bringing ideas to life with clean, efficient
-            code.
-          </p>
-
-          <div class="flex space-x-6 mt-10 text-2xl text-slate-400">
-            <a
-              href="https://github.com/xiaoo15"
-              class="w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center hover:text-[var(--accent-color)] hover:border-[var(--accent-color)] hover:transform hover:scale-110 transition-all duration-300"
-              aria-label="GitHub"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a
-              href="#"
-              class="w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center hover:text-[var(--accent-color)] hover:border-[var(--accent-color)] hover:transform hover:scale-110 transition-all duration-300"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a
-              href="#"
-              class="w-14 h-14 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] flex items-center justify-center hover:text-[var(--accent-color)] hover:border-[var(--accent-color)] hover:transform hover:scale-110 transition-all duration-300"
-              aria-label="Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
-
-          <!-- Scroll indicator -->
-          <div class="mt-20 flex flex-col items-center">
-            <p class="font-roboto-mono text-sm text-slate-500 mb-2">
-              Scroll to explore
-            </p>
-            <div
-              class="w-px h-16 bg-gradient-to-b from-[var(--accent-color)] to-transparent"
-            ></div>
-          </div>
+      <div class="hero-content">
+        <div class="hero-badge reveal-up" data-delay="0">
+          <span class="badge-dot"></span>
+          Available for projects · 2025
         </div>
-      </section>
 
-      <section id="skills" class="py-24 section-hidden">
-        <h2
-          class="text-4xl font-black text-center text-[var(--text-heading)] mb-16 relative"
-        >
-          <span class="gradient-text">Technologies & Skills</span>
-          <span
-            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
-          ></span>
-        </h2>
-        <div class="max-w-5xl mx-auto">
-          <div class="mb-12">
-            <h3
-              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
-            >
-              <lottie-player
-                src="https://assets10.lottiefiles.com/packages/lf20_uk4b9p2q.json"
-                background="transparent"
-                speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px"
-                loop
-                autoplay
-              ></lottie-player>
-              // Backend Development
-            </h3>
-            <div class="flex flex-wrap gap-4">
-              <span class="skill-tag">PHP</span>
-              <span class="skill-tag">Laravel</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Express.js</span>
-              <span class="skill-tag">MySQL</span>
-              <span class="skill-tag">PostgreSQL</span>
-              <span class="skill-tag">REST API</span>
-              <span class="skill-tag">GraphQL</span>
-            </div>
-          </div>
+        <h1 class="hero-headline reveal-up" data-delay="100">
+          Crafting digital<br />
+          <span class="gradient-text">experiences</span><br />
+          that matter.
+        </h1>
 
-          <div class="mb-12">
-            <h3
-              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
-            >
-              <lottie-player
-                src="https://assets10.lottiefiles.com/packages/lf20_2cwDXD.json"
-                background="transparent"
-                speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px"
-                loop
-                autoplay
-              ></lottie-player>
-              // Frontend Development
-            </h3>
-            <div class="flex flex-wrap gap-4">
-              <span class="skill-tag">HTML5 & CSS3</span>
-              <span class="skill-tag">JavaScript (ES6+)</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">React</span>
-              <span class="skill-tag">Vue.js</span>
-              <span class="skill-tag">Tailwind CSS</span>
-              <span class="skill-tag">SASS/SCSS</span>
-              <span class="skill-tag">Webpack</span>
-            </div>
-          </div>
-
-          <div>
-            <h3
-              class="font-roboto-mono text-xl text-[var(--accent-color)] mb-6 flex items-center"
-            >
-              <lottie-player
-                src="https://assets10.lottiefiles.com/packages/lf20_pmYwPN.json"
-                background="transparent"
-                speed="1"
-                style="width: 40px; height: 40px; margin-right: 10px"
-                loop
-                autoplay
-              ></lottie-player>
-              // Game Development & Others
-            </h3>
-            <div class="flex flex-wrap gap-4">
-              <span class="skill-tag">Roblox (Lua)</span>
-              <span class="skill-tag">Unity (C#)</span>
-              <span class="skill-tag">Git & GitHub</span>
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">AWS</span>
-              <span class="skill-tag">Figma</span>
-              <span class="skill-tag">Adobe Creative Suite</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="py-24 section-hidden">
-        <h2
-          class="text-4xl font-black text-center text-[var(--text-heading)] mb-20 relative"
-        >
-          <span class="gradient-text">Featured Projects</span>
-          <span
-            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
-          ></span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Project 1 -->
-          <div class="project-card" data-modal-target="modal-rapor">
-            <div class="project-card-image">
-              <img
-                src="rapor_online.png"
-                alt="Rapor Online Sekolah Screenshot"
-              />
-              <div class="absolute top-4 right-4 z-10">
-                <span
-                  class="bg-[var(--accent-color)] text-white text-xs font-bold px-3 py-1 rounded-full"
-                  >Full Stack</span
-                >
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div>
-                <p
-                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-3 flex items-center"
-                >
-                  <i class="fas fa-circle text-xs mr-2"></i>
-                  Web Application
-                </p>
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
-                  Rapor Online Sekolah
-                </h3>
-                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
-                  A comprehensive digital report card system for schools,
-                  enabling teachers to input grades and students to view
-                  academic results online.
-                </p>
-              </div>
-              <div
-                class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
-              >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Laravel</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">PHP</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >Bootstrap</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card" data-modal-target="modal-absensi">
-            <div class="project-card-image">
-              <img
-                src="absensi-ujian.png"
-                alt="Absensi Ujian Digital Screenshot"
-              />
-              <div class="absolute top-4 right-4 z-10">
-                <span
-                  class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full"
-                  >Web App</span
-                >
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div>
-                <p
-                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-3 flex items-center"
-                >
-                  <i class="fas fa-circle text-xs mr-2"></i>
-                  Web Application
-                </p>
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
-                  Absensi Ujian Digital
-                </h3>
-                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
-                  A web-based application for efficiently recording and managing
-                  student attendance during exams in a paperless environment.
-                </p>
-              </div>
-              <div
-                class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
-              >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">PHP</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >JavaScript</span
-                >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">AJAX</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card" data-modal-target="modal-roblox">
-            <div class="project-card-image">
-              <img
-                src="https://files.clearlydev.com/site-assets/2023/09/roblox-banner-new.jpeg"
-                alt="Roblox Game Screenshot"
-              />
-              <div class="absolute top-4 right-4 z-10">
-                <span
-                  class="bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full"
-                  >Game Dev</span
-                >
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div>
-                <p
-                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-3 flex items-center"
-                >
-                  <i class="fas fa-circle text-xs mr-2"></i>
-                  Game Development
-                </p>
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
-                  "Neo-Sidoarjo" City RP
-                </h3>
-                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
-                  A Roleplay game on Roblox platform with modern city theme.
-                  Focus on economic systems, jobs, and player interactions.
-                </p>
-              </div>
-              <div
-                class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
-              >
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >Roblox Studio</span
-                >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">Lua</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >Game Design</span
-                >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">UI/UX</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card" data-modal-target="modal-volunteam">
-            <div class="project-card-image">
-              <img
-                src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
-                alt="VolunTeam Dashboard Screenshot"
-              />
-              <div class="absolute top-4 right-4 z-10">
-                <span
-                  class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full"
-                  >Full Stack</span
-                >
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div>
-                <p
-                  class="font-roboto-mono text-sm text-[var(--accent-color)] mb-3 flex items-center"
-                >
-                  <i class="fas fa-database text-xs mr-2"></i>
-                  Web Application
-                </p>
-                <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-3">
-                  VolunTeam Platform
-                </h3>
-                <p class="text-[var(--text-primary)] leading-relaxed mb-6">
-                  A comprehensive volunteer management system built with
-                  <strong>Laravel</strong>. Features secure authentication, CRUD
-                  operations, and optimized MySQL database structure for
-                  scalability.
-                </p>
-              </div>
-              <div
-                class="flex flex-wrap gap-2 text-sm font-roboto-mono text-slate-400 mt-auto"
-              >
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >Laravel 10</span
-                >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">MySQL</span>
-                <span class="px-3 py-1 bg-gray-900 rounded-full"
-                  >Bootstrap 5</span
-                >
-                <span class="px-3 py-1 bg-gray-900 rounded-full">MVC Arch</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="py-24 text-center section-hidden">
-        <h2
-          class="text-4xl font-black text-[var(--text-heading)] mb-6 relative inline-block"
-        >
-          <span class="gradient-text">Let's Connect</span>
-          <span
-            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"
-          ></span>
-        </h2>
-        <p class="max-w-xl mx-auto text-xl text-[var(--text-primary)] mb-10">
-          I'm always open to discussing new projects, creative ideas, or
-          opportunities to be part of your vision.
+        <p class="hero-sub reveal-up" data-delay="200">
+          I'm Revan Andi Laksono — a product designer and full-stack developer<br
+            class="desktop-br"
+          />
+          building refined digital products at the intersection of design and
+          engineering.
         </p>
 
-        <div
-          class="max-w-md mx-auto bg-[var(--card-bg)] rounded-2xl p-8 border border-[var(--border-color)] mb-12"
-        >
-          <div class="flex items-center justify-center mb-6">
-            <div
-              class="w-16 h-16 rounded-full bg-gradient-to-r from-[var(--accent-color)] to-blue-500 flex items-center justify-center text-2xl"
-            >
-              <i class="fas fa-paper-plane text-black"></i>
-            </div>
-          </div>
-          <h3 class="text-2xl font-bold text-[var(--text-heading)] mb-2">
-            Get In Touch
-          </h3>
-          <p class="text-slate-400 font-roboto-mono text-sm mb-6 select-all">
-            revanandilaksono.work@gmail.com
-          </p>
-
-          <a
-            href="mailto:revanandilaksono.work@gmail.com"
-            class="inline-block bg-gradient-to-r from-[var(--accent-color)] to-blue-500 text-black font-bold px-10 py-4 rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 transform relative overflow-hidden group"
-          >
-            <span class="relative z-10">Send Message</span>
-            <span
-              class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-            ></span>
+        <div class="hero-actions reveal-up" data-delay="300">
+          <a href="#projects" class="btn-primary magnetic">
+            <span>View my work</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <a href="#contact" class="btn-ghost magnetic">
+            <span>Get in touch</span>
           </a>
         </div>
-      </section>
 
-      <section id="ratings" class="py-20 text-center section-hidden">
-        <h2 class="text-3xl font-bold text-[var(--text-heading)] mb-4">
-          Leave a Rating
+        <div class="hero-scroll reveal-up" data-delay="400">
+          <div class="scroll-line">
+            <div class="scroll-dot"></div>
+          </div>
+          <span>scroll to explore</span>
+        </div>
+      </div>
+
+      <div class="hero-stats reveal-up" data-delay="350">
+        <div class="stat">
+          <div class="stat-value">
+            <span class="stat-num" data-target="10">0</span
+            ><span class="stat-plus">+</span>
+          </div>
+          <span class="stat-label">Projects shipped</span>
+        </div>
+        <div class="stat-divider"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-label reveal-up">
+          <span class="label-line"></span>
+          About me
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image-wrap reveal-left">
+            <div class="about-image-frame">
+              <div class="about-img-placeholder">
+                <div class="avatar-initials">RVN</div>
+                <div class="avatar-ring"></div>
+                <div class="avatar-glow"></div>
+              </div>
+              <div class="about-img-badge">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle cx="10" cy="10" r="3" fill="#00d9ff" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="7"
+                    stroke="#00d9ff"
+                    stroke-width="1"
+                    opacity="0.4"
+                  />
+                </svg>
+                Open to work
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text reveal-right">
+            <h2 class="section-title">
+              Turning ideas into<br /><em>elegant</em> reality.
+            </h2>
+            <p class="about-body">
+              I believe that great design is invisible — it just works, feels
+              right, and leaves you wanting more. With six years of experience
+              working with startups, scale-ups, and Fortune 500 companies, I
+              bring a rare mix of product thinking and pixel-level craft.
+            </p>
+            <p class="about-body">
+              My work lives at the intersection of
+              <span class="text-accent">beautiful interfaces</span>,
+              <span class="text-accent">thoughtful interactions</span>, and
+              <span class="text-accent">rock-solid code</span> — built to last
+              and scale.
+            </p>
+
+            <div class="about-cards">
+              <div class="about-card">
+                <div class="about-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <rect
+                      x="2"
+                      y="3"
+                      width="18"
+                      height="13"
+                      rx="2"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M7 19h8M11 16v3"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Product Design</h4>
+                  <p>UX strategy, design systems, prototyping</p>
+                </div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <polyline
+                      points="4 8 4 4 18 4 18 8"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="7"
+                      y1="18"
+                      x2="15"
+                      y2="18"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Development</h4>
+                  <p>React, Node, TypeScript, PostgreSQL</p>
+                </div>
+              </div>
+              <div class="about-card">
+                <div class="about-card-icon">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path
+                      d="M11 2L2 7l9 5 9-5-9-5z"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M2 15l9 5 9-5"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M2 11l9 5 9-5"
+                      stroke="#00d9ff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Strategy</h4>
+                  <p>Product roadmaps, go-to-market, growth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-label reveal-up">
+          <span class="label-line"></span>
+          Selected work
+        </div>
+        <h2 class="section-title reveal-up">
+          Projects that push<br />the <em>boundary</em>.
         </h2>
-        <p class="max-w-xl mx-auto text-[var(--text-primary)] mb-8">
-          How would you rate my portfolio?
+        <p class="section-sub reveal-up">
+          A curated selection of recent work — each project a new challenge, a
+          new solution.
         </p>
 
-        <div
-          class="max-w-lg mx-auto p-8 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)]"
-        >
-          <div class="flex items-center justify-center space-x-2 mb-6">
-            <span
-              data-rating="1"
-              class="star-rating text-5xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-all duration-300"
-              >★</span
-            >
-            <span
-              data-rating="2"
-              class="star-rating text-5xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-all duration-300"
-              >★</span
-            >
-            <span
-              data-rating="3"
-              class="star-rating text-5xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-all duration-300"
-              >★</span
-            >
-            <span
-              data-rating="4"
-              class="star-rating text-5xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-all duration-300"
-              >★</span
-            >
-            <span
-              data-rating="5"
-              class="star-rating text-5xl cursor-pointer text-slate-500 hover:text-yellow-400 transition-all duration-300"
-              >★</span
-            >
+        <div class="projects-grid">
+          <div class="project-card reveal-up" data-delay="0">
+            <div class="project-image">
+              <div
+                class="project-img-inner"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #0a1628 0%,
+                    #001a33 50%,
+                    #00243d 100%
+                  );
+                "
+              >
+                <div class="project-mockup mockup-dashboard">
+                  <div class="mock-topbar">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="mock-content">
+                    <div class="mock-sidebar"></div>
+                    <div class="mock-main">
+                      <div class="mock-chart"></div>
+                      <div class="mock-cards">
+                        <div class="mock-card-sm"></div>
+                        <div class="mock-card-sm"></div>
+                        <div class="mock-card-sm"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-live magnetic">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M7 3H3v12h12v-4M10 2h6v6M8 10l8-8"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Live preview
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+                <span class="project-type">SaaS · Analytics</span>
+              </div>
+              <h3 class="project-title">Lumina Analytics</h3>
+              <p class="project-desc">
+                A real-time data visualization platform for enterprise teams —
+                built from zero to 12,000 daily active users in under a year.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">D3.js</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
           </div>
-          <p id="rating-text" class="text-lg text-slate-400">
-            Click a star to rate
-          </p>
-        </div>
-      </section>
-    </main>
 
-    <footer
-      class="text-center py-12 border-t border-[var(--border-color)] mt-20"
-    >
-      <div class="mb-6">
-        <a
-          href="#"
-          class="text-3xl font-black text-[var(--text-heading)] gradient-text"
-          >XIO</a
-        >
+          <div class="project-card reveal-up" data-delay="100">
+            <div class="project-image">
+              <div
+                class="project-img-inner"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #0d0a1e 0%,
+                    #130d28 50%,
+                    #1a0f35 100%
+                  );
+                "
+              >
+                <div class="project-mockup mockup-mobile">
+                  <div class="mock-phone">
+                    <div class="mock-phone-screen">
+                      <div class="mock-phone-header"></div>
+                      <div class="mock-phone-hero"></div>
+                      <div class="mock-phone-items">
+                        <div class="mock-phone-item"></div>
+                        <div class="mock-phone-item"></div>
+                        <div class="mock-phone-item"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-live magnetic">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M7 3H3v12h12v-4M10 2h6v6M8 10l8-8"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Live preview
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-year">2024</span>
+                <span class="project-type">Mobile · Fintech</span>
+              </div>
+              <h3 class="project-title">Volta Finance</h3>
+              <p class="project-desc">
+                A next-generation personal finance app that makes budgeting feel
+                effortless — shipped to 80,000+ users across iOS and Android.
+              </p>
+              <div class="project-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Stripe</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal-up" data-delay="200">
+            <div class="project-image">
+              <div
+                class="project-img-inner"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #050d10 0%,
+                    #071419 50%,
+                    #0a1e23 100%
+                  );
+                "
+              >
+                <div class="project-mockup mockup-landing">
+                  <div class="mock-hero-block">
+                    <div class="mock-hero-text">
+                      <div class="mock-line long"></div>
+                      <div class="mock-line medium"></div>
+                      <div class="mock-btn-row">
+                        <div class="mock-btn"></div>
+                        <div class="mock-btn outline"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-live magnetic">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M7 3H3v12h12v-4M10 2h6v6M8 10l8-8"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Live preview
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-year">2023</span>
+                <span class="project-type">Web · AI SaaS</span>
+              </div>
+              <h3 class="project-title">Cerebra AI</h3>
+              <p class="project-desc">
+                Landing page and product design for an AI writing assistant —
+                drove 40% conversion improvement through design system overhaul.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">Framer Motion</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal-up" data-delay="50">
+            <div class="project-image">
+              <div
+                class="project-img-inner"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #0a100a 0%,
+                    #0d1a0d 50%,
+                    #0f2010 100%
+                  );
+                "
+              >
+                <div class="project-mockup mockup-ecom">
+                  <div class="mock-store">
+                    <div class="mock-product-grid">
+                      <div class="mock-product"></div>
+                      <div class="mock-product"></div>
+                      <div class="mock-product"></div>
+                      <div class="mock-product"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-overlay">
+                <a href="#" class="project-live magnetic">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M7 3H3v12h12v-4M10 2h6v6M8 10l8-8"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Live preview
+                </a>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-year">2023</span>
+                <span class="project-type">E-commerce · Design</span>
+              </div>
+              <h3 class="project-title">Folio Commerce</h3>
+              <p class="project-desc">
+                A premium e-commerce experience for a luxury goods brand —
+                handcrafted animations and checkout flow that reduced drop-off
+                by 31%.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Shopify</span>
+                <span class="tag">Liquid</span>
+                <span class="tag">GSAP</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="flex justify-center space-x-8 text-2xl text-slate-500 mb-6">
-        <a
-          href="https://github.com/xiaoo15"
-          class="hover:text-[var(--accent-color)] transition-colors"
-          aria-label="GitHub"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a
-          href="#"
-          class="hover:text-[var(--accent-color)] transition-colors"
-          aria-label="LinkedIn"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-        <a
-          href="#"
-          class="hover:text-[var(--accent-color)] transition-colors"
-          aria-label="Instagram"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a
-          href="#"
-          class="hover:text-[var(--accent-color)] transition-colors"
-          aria-label="Twitter"
-          ><i class="fab fa-twitter"></i
-        ></a>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-label reveal-up">
+          <span class="label-line"></span>
+          Expertise
+        </div>
+        <h2 class="section-title reveal-up">
+          Tools of the<br /><em>craft</em>.
+        </h2>
+        <p class="section-sub reveal-up">
+          The technologies and tools I use to bring ideas to life — chosen
+          deliberately, used expertly.
+        </p>
+
+        <div class="skills-categories">
+          <div class="skill-category reveal-up" data-delay="0">
+            <h3 class="skill-cat-title">Design</h3>
+            <div class="skill-badges">
+              <div class="skill-badge">Figma</div>
+              <div class="skill-badge">Framer</div>
+              <div class="skill-badge">Principle</div>
+              <div class="skill-badge">After Effects</div>
+              <div class="skill-badge">Spline</div>
+              <div class="skill-badge">Lottie</div>
+            </div>
+          </div>
+
+          <div class="skill-category reveal-up" data-delay="100">
+            <h3 class="skill-cat-title">Frontend</h3>
+            <div class="skill-badges">
+              <div class="skill-badge">React</div>
+              <div class="skill-badge">TypeScript</div>
+              <div class="skill-badge">Next.js</div>
+              <div class="skill-badge">CSS / Sass</div>
+              <div class="skill-badge">Tailwind</div>
+              <div class="skill-badge">Three.js</div>
+              <div class="skill-badge">GSAP</div>
+            </div>
+          </div>
+
+          <div class="skill-category reveal-up" data-delay="200">
+            <h3 class="skill-cat-title">Backend</h3>
+            <div class="skill-badges">
+              <div class="skill-badge">Node.js</div>
+              <div class="skill-badge">Python</div>
+              <div class="skill-badge">PostgreSQL</div>
+              <div class="skill-badge">Redis</div>
+              <div class="skill-badge">GraphQL</div>
+              <div class="skill-badge">Docker</div>
+            </div>
+          </div>
+
+          <div class="skill-category reveal-up" data-delay="300">
+            <h3 class="skill-cat-title">Platform</h3>
+            <div class="skill-badges">
+              <div class="skill-badge">Vercel</div>
+              <div class="skill-badge">AWS</div>
+              <div class="skill-badge">Stripe</div>
+              <div class="skill-badge">Supabase</div>
+              <div class="skill-badge">GitHub</div>
+              <div class="skill-badge">Linear</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-sm text-slate-500 font-roboto-mono">
-        Designed & Built by Revan • © 2025
-      </p>
+    </section>
+
+    <!-- TESTIMONIALS STRIP -->
+    <div class="testimonial-strip">
+      <div class="strip-inner">
+        <blockquote class="testimonial">
+          <p>
+            "Revan delivered work that was beyond our expectations — the
+            attention to detail was extraordinary."
+          </p>
+          <cite>— Sarah Chen, CEO at Lumina</cite>
+        </blockquote>
+        <div class="strip-divider"></div>
+        <blockquote class="testimonial">
+          <p>
+            "Rare combination of design sensibility and engineering depth. Volta
+            wouldn't exist without Revan."
+          </p>
+          <cite>— Marcus Obi, Founder at Volta</cite>
+        </blockquote>
+        <div class="strip-divider"></div>
+        <blockquote class="testimonial">
+          <p>
+            "The best hire we made last year — both for craft quality and
+            strategic thinking."
+          </p>
+          <cite>— Julia Navarro, CPO at Cerebra</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-label reveal-up">
+          <span class="label-line"></span>
+          Get in touch
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-left reveal-left">
+            <h2 class="section-title">
+              Have an idea?<br />Let's make it<br /><em>real</em>.
+            </h2>
+            <p class="contact-sub">
+              Whether you have a project in mind, want to collaborate, or just
+              want to say hello — I'd love to hear from you.
+            </p>
+
+            <div class="contact-info">
+              <a href="mailto:alex@alexmercer.co" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <rect
+                    x="2"
+                    y="4"
+                    width="16"
+                    height="13"
+                    rx="2"
+                    stroke="#00d9ff"
+                    stroke-width="1.4"
+                  />
+                  <path
+                    d="M2 7l8 5 8-5"
+                    stroke="#00d9ff"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                alex@alexmercer.co
+              </a>
+              <a href="tel:+14155550192" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 3h4l1.5 4-2 1.5c1 2 2.5 3.5 4.5 4.5L13.5 11l4 1.5v4c-8 1-15-6-13.5-13.5z"
+                    stroke="#00d9ff"
+                    stroke-width="1.4"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                +1 (415) 555-0192
+              </a>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-link magnetic" aria-label="GitHub">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link magnetic" aria-label="Twitter">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="social-link magnetic" aria-label="LinkedIn">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a href="#" class="social-link magnetic" aria-label="Dribbble">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path
+                    d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-right reveal-right">
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="What's this about?"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-primary magnetic full-width">
+                <span>Send message</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M2 8h12M10 4l4 4-4 4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div class="form-success" id="form-success">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="9"
+                    stroke="#00d9ff"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M7 11l3 3 5-5"
+                    stroke="#00d9ff"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Message sent! I'll be in touch soon.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="nav-logo">RVN<span class="dot">.</span></span>
+          <p>Designed & built with craft.<br />© 2025 Revan Andi Laksono.</p>
+        </div>
+        <div class="footer-right">
+          <a href="#hero" class="footer-top magnetic">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path
+                d="M10 16V4M4 10l6-6 6 6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Back to top
+          </a>
+        </div>
+      </div>
     </footer>
 
-    <!-- Modals -->
-    <div id="modal-rapor" class="modal-backdrop">
-      <div class="modal-content">
-        <img
-          src="rapor_online.png"
-          alt="Detail Rapor Online"
-          class="modal-image"
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" aria-label="Back to top">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path
+          d="M10 15V5M5 10l5-5 5 5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
-        <div class="p-8">
-          <button
-            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
-            onclick="closeModal('modal-rapor')"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
-            Rapor Online Sekolah
-          </h3>
-          <div class="space-y-6 text-[var(--text-primary)]">
-            <p class="text-lg">
-              This application was built using the
-              <strong>Laravel</strong> framework to create a structured and
-              secure system. The goal is to replace the manual grading process
-              with a centralized digital system.
-            </p>
-            <h4 class="font-bold text-2xl text-[var(--text-heading)]">
-              Key Features:
-            </h4>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <i
-                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span>Multi-user roles (Admin, Teacher, Student).</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span
-                  >CRUD operations for student, teacher, and subject data.</span
-                >
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span>Grade input per semester by homeroom teachers.</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span>Automatic PDF report card generation.</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-check text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span>Monitoring dashboard for school administrators.</span>
-              </li>
-            </ul>
-            <div
-              class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
-            >
-              <span class="bg-gray-900 px-4 py-2 rounded-full">Laravel</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">PHP</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">MySQL</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">Bootstrap</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full">JavaScript</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </svg>
+    </button>
 
-    <div id="modal-absensi" class="modal-backdrop">
-      <div class="modal-content">
-        <img
-          src="absensi-ujian.png"
-          alt="Detail Absensi Ujian"
-          class="modal-image"
-        />
-        <div class="p-8">
-          <button
-            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
-            onclick="closeModal('modal-absensi')"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
-            Absensi Ujian Digital
-          </h3>
-          <p class="text-lg mb-6">
-            A simple yet functional application built with
-            <strong>native PHP</strong>. This project focuses on speed and ease
-            of use for exam supervisors to record participant attendance.
-          </p>
-          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">
-            Workflow:
-          </h4>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start">
-              <i
-                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span>Supervisor logs into the system.</span>
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span>Selects exam session and room.</span>
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span>Displays list of exam participants in that room.</span>
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                >Marks attendance status (Present, Absent, Late) for each
-                student.</span
-              >
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-arrow-right text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span>Saves data to database in real-time.</span>
-            </li>
-          </ul>
-          <div
-            class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
-          >
-            <span class="bg-gray-900 px-4 py-2 rounded-full">PHP</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">MySQL</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">JavaScript</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">AJAX</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">HTML/CSS</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal-roblox" class="modal-backdrop">
-      <div class="modal-content">
-        <img
-          src="https://files.clearlydev.com/site-assets/2023/09/roblox-banner-new.jpeg"
-          alt="Detail Roblox Game"
-          class="modal-image"
-        />
-        <div class="p-8">
-          <button
-            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
-            onclick="closeModal('modal-roblox')"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
-            Roblox Game: "Neo-Sidoarjo" City RP
-          </h3>
-          <p class="text-lg mb-6">
-            This is my passion project in the world of game development. I
-            designed and programmed various systems within the game using
-            <strong>Lua</strong> in the
-            <strong>Roblox Studio</strong> environment.
-          </p>
-          <h4 class="font-bold text-2xl text-[var(--text-heading)] mb-4">
-            Developed Systems:
-          </h4>
-          <ul class="space-y-4 mb-8">
-            <li class="flex items-start">
-              <i
-                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                ><strong>Economic System:</strong> In-game currency, ATMs, and
-                salary system for jobs.</span
-              >
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                ><strong>Job System:</strong> Players can choose jobs like
-                police officer, doctor, or taxi driver.</span
-              >
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                ><strong>Inventory & Shop:</strong> System for buying, storing,
-                and using items.</span
-              >
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                ><strong>UI Design:</strong> Designing user interfaces (UI) for
-                menus, inventory, and notifications.</span
-              >
-            </li>
-            <li class="flex items-start">
-              <i
-                class="fas fa-gamepad text-[var(--accent-color)] mr-3 mt-1"
-              ></i>
-              <span
-                ><strong>Vehicle System:</strong> Custom vehicle mechanics with
-                ownership and customization.</span
-              >
-            </li>
-          </ul>
-          <div
-            class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
-          >
-            <span class="bg-gray-900 px-4 py-2 rounded-full"
-              >Roblox Studio</span
-            >
-            <span class="bg-gray-900 px-4 py-2 rounded-full">Lua</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">Game Design</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">UI/UX</span>
-            <span class="bg-gray-900 px-4 py-2 rounded-full">3D Modeling</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal-volunteam" class="modal-backdrop">
-      <div class="modal-content">
-        <img
-          src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
-          alt="VolunTeam Dashboard Detail"
-          class="modal-image"
-        />
-        <div class="p-8">
-          <button
-            class="absolute top-4 right-4 text-2xl text-slate-400 hover:text-white"
-            onclick="closeModal('modal-volunteam')"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-          <h3 class="text-3xl font-bold text-[var(--text-heading)] mb-6">
-            VolunTeam Platform
-          </h3>
-          <div class="space-y-6 text-[var(--text-primary)]">
-            <p class="text-lg">
-              A centralized volunteer management system engineered with
-              <strong>Laravel 10</strong>. This platform solves the complexity
-              of recruiting, tracking, and managing volunteers for large-scale
-              events. <br /><br />
-              Built with <strong>Clean Architecture</strong> principles to
-              ensure maintainability and scalability for future development.
-            </p>
-            <h4 class="font-bold text-2xl text-[var(--text-heading)]">
-              Key Technical Features:
-            </h4>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <i
-                  class="fas fa-shield-alt text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span
-                  ><strong>Secure Authentication:</strong> Multi-guard login
-                  system for Admins, Organizers, and Volunteers.</span
-                >
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-database text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span
-                  ><strong>Advanced CRUD:</strong> Efficient data handling for
-                  Event creation and Volunteer application tracking.</span
-                >
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-code-branch text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span
-                  ><strong>MVC Architecture:</strong> Separation of logic
-                  (Controller) and interface (View) for cleaner code.</span
-                >
-              </li>
-              <li class="flex items-start">
-                <i
-                  class="fas fa-mobile-alt text-[var(--accent-color)] mr-3 mt-1"
-                ></i>
-                <span
-                  ><strong>Responsive UI:</strong> Built with Bootstrap 5 to
-                  ensure accessibility across devices.</span
-                >
-              </li>
-            </ul>
-            <div
-              class="flex flex-wrap gap-3 text-sm font-roboto-mono text-slate-400 pt-6"
-            >
-              <span class="bg-gray-900 px-4 py-2 rounded-full">Laravel 10</span>
-              <span class="bg-gray-900 px-4 py-2 rounded-full"
-                >MySQL Relational DB</span
-              >
-              <span class="bg-gray-900 px-4 py-2 rounded-full"
-                >Blade Engine</span
-              >
-              <span class="bg-gray-900 px-4 py-2 rounded-full"
-                >REST Structure</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-      // Typed.js initialization
-      new Typed("#typed-text", {
-        strings: [
-          "Full Stack Developer",
-          "Game Developer",
-          "Problem Solver",
-          "Creative Thinker",
-        ],
-        typeSpeed: 50,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true,
-        cursorChar: "|",
-      });
-
-      // Particles.js initialization
-      document.addEventListener("DOMContentLoaded", function () {
-        particlesJS("particles-js", {
-          particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: "#58e6d9" },
-            shape: { type: "circle" },
-            opacity: { value: 0.3, random: true },
-            size: { value: 3, random: true },
-            line_linked: {
-              enable: true,
-              distance: 150,
-              color: "#58e6d9",
-              opacity: 0.1,
-              width: 1,
-            },
-            move: {
-              enable: true,
-              speed: 2,
-              direction: "none",
-              random: true,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-            },
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: {
-              onhover: { enable: true, mode: "repulse" },
-              onclick: { enable: true, mode: "push" },
-            },
-          },
-          retina_detect: true,
-        });
-      });
-
-      // Modal Interaction Script
-      const projectCards = document.querySelectorAll(".project-card");
-      const modals = document.querySelectorAll(".modal-backdrop");
-
-      projectCards.forEach((card) => {
-        card.addEventListener("click", () => {
-          const modalId = card.getAttribute("data-modal-target");
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
-          }
-        });
-      });
-
-      modals.forEach((modal) => {
-        modal.addEventListener("click", (event) => {
-          // Close modal if backdrop is clicked
-          if (event.target === modal) {
-            modal.classList.remove("active");
-            document.body.style.overflow = "auto";
-          }
-        });
-      });
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.classList.remove("active");
-          document.body.style.overflow = "auto";
-        }
-      }
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          modals.forEach((modal) => {
-            modal.classList.remove("active");
-            document.body.style.overflow = "auto";
-          });
-        }
-      });
-
-      // Manual Rating Script with Confetti
-      const stars = document.querySelectorAll(".star-rating");
-      const ratingText = document.getElementById("rating-text");
-      const messages = [
-        "Thanks for the 1 star. I'll try harder!",
-        "Thanks for the 2 stars! I appreciate your feedback.",
-        "Thanks for the 3 stars! I'm glad you liked it.",
-        "Thanks for the 4 stars! That means a lot.",
-        "WOW! 5 stars! Thank you so much! 🎉",
-      ];
-
-      stars.forEach((star) => {
-        star.addEventListener("click", () => {
-          const value = star.getAttribute("data-rating");
-
-          stars.forEach((s) => {
-            if (parseInt(s.getAttribute("data-rating")) <= parseInt(value)) {
-              s.classList.add("active");
-              s.classList.remove("text-slate-500");
-              s.classList.add("text-yellow-400");
-            } else {
-              s.classList.remove("active");
-              s.classList.remove("text-yellow-400");
-              s.classList.add("text-slate-500");
-            }
-          });
-
-          ratingText.textContent = messages[value - 1];
-
-          if (value === "5") {
-            // Multiple confetti effects
-            confetti({
-              particleCount: 150,
-              spread: 70,
-              origin: { y: 0.6 },
-            });
-
-            setTimeout(() => {
-              confetti({
-                particleCount: 100,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0, y: 0.6 },
-              });
-            }, 250);
-
-            setTimeout(() => {
-              confetti({
-                particleCount: 100,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1, y: 0.6 },
-              });
-            }, 500);
-          }
-        });
-
-        // Hover effect for stars
-        star.addEventListener("mouseenter", () => {
-          const hoverValue = parseInt(star.getAttribute("data-rating"));
-          stars.forEach((s) => {
-            if (parseInt(s.getAttribute("data-rating")) <= hoverValue) {
-              s.classList.add("text-yellow-300");
-            }
-          });
-        });
-
-        star.addEventListener("mouseleave", () => {
-          stars.forEach((s) => {
-            if (!s.classList.contains("active")) {
-              s.classList.remove("text-yellow-300");
-            }
-          });
-        });
-      });
-
-      // Scroll reveal animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("section-visible");
-          }
-        });
-      }, observerOptions);
-
-      // Observe all sections
-      document.querySelectorAll(".section-hidden").forEach((section) => {
-        observer.observe(section);
-      });
-
-      // Add scroll effect to header
-      window.addEventListener("scroll", function () {
-        const header = document.querySelector("header");
-        if (window.scrollY > 50) {
-          header.classList.add(
-            "bg-[var(--bg-color)]",
-            "bg-opacity-80",
-            "backdrop-blur-md",
-            "shadow-lg"
-          );
-        } else {
-          header.classList.remove(
-            "bg-[var(--bg-color)]",
-            "bg-opacity-80",
-            "backdrop-blur-md",
-            "shadow-lg"
-          );
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
